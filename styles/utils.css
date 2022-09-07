@@ -1,0 +1,23 @@
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.m-xs {
+  margin: 10px;
+}
+
+.m-s {
+  margin: 20px;
+}
+
+.m-blok {
+  margin: 50px;
+}
+
+.list-none {
+  list-style: none;
+}

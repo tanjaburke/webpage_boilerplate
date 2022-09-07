@@ -1,0 +1,36 @@
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.js-c {
+  justify-content: center;
+}
+
+.js-s {
+  justify-content: flex-start;
+}
+
+.js-e {
+  justify-content: flex-end;
+}
+
+.js-space {
+  justify-content: space-between;
+}
+
+.al-c {
+  align-items: center;
+}
+
+.al-s {
+  align-items: flex-start;
+}
+
+.al-e {
+  align-items: flex-end;
+}

@@ -1,6 +1,5 @@
 <template>
   <div v-editable="blok" class="font-[Roboto] px-4">
-   YO
    <StoryblokComponent
       v-for="blok in blok.body"
       :key="blok._uid"
@@ -9,6 +8,17 @@
   </div>
 </template>
 
-<script setup>
-defineProps({ blok: Object });
+<script lang="ts">
+export default {
+    props: {
+        blok: {
+            type: Object,
+            required: true
+        }
+    },
+    mounted(){
+      console.log('in Page', toRaw(this.blok));
+      
+    }
+}
 </script>
