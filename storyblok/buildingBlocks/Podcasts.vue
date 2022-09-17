@@ -1,5 +1,4 @@
 <template>
-hello
     <section>
         <h3>{{ blok.title }}</h3>
         <template v-for="item in blok.episodes" :key="item._uid">

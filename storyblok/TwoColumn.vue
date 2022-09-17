@@ -1,9 +1,9 @@
 <template>
-  <section class="flex w-100">
-      <article class="flex-col">
+  <section class="blok container">
+      <article class="column flex-col">
            <RichTextRenderer :document="blok.firstColumn"></RichTextRenderer>
       </article>
-      <article class="flex-col">
+      <article class="column flex-col">
             <RichTextRenderer :document="blok.secondColumn"></RichTextRenderer>
       </article>
   </section>
@@ -29,3 +29,13 @@ export default {
 
 };
 </script>
+
+<style lang="scss">
+    .column {
+        word-break: break-all;
+        &:nth-child(1) {
+            margin-right: 50px;
+        }
+    }
+
+</style>

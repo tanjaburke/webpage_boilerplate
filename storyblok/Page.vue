@@ -1,8 +1,6 @@
 <template>
-  <div v-editable="blok" class="font-[Roboto] px-4">
+  <div v-for="blok in blok.body" :key="blok._uid" :style="{backgroundColor: '#'+blok.backgroundColor}">
    <StoryblokComponent
-      v-for="blok in blok.body"
-      :key="blok._uid"
       :blok="blok"
     />
   </div>
@@ -16,9 +14,5 @@ export default {
             required: true
         }
     },
-    mounted(){
-      console.log('in Page', toRaw(this.blok));
-      
-    }
 }
 </script>

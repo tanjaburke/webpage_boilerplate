@@ -1,5 +1,5 @@
 <template>
- <h1>{{ blok.pageTitle }}</h1>
+ <h1 class="blok">{{ blok.pageTitle }}</h1>
 </template>
 
 <script lang="ts">

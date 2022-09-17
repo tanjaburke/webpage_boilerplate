@@ -1,7 +1,9 @@
 <template>
-    <section class="flex-col al-c js-c w-100">
-        <p class="quote">{{ blok.quote }}</p>
-        <p class="byWho">{{ blok.byWho }}</p>
+    <section class="blok quote-section flex-col al-c js-c">
+        <article class="quote article">
+            <p class="quote">{{ blok.quote }}</p>
+            <p class="by-who">- {{ blok.byWho }}</p>
+        </article>
     </section>
 </template>
 
@@ -16,14 +18,23 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
+<style lang="scss">
+.quote-section {
+    position: relative;
+}
+
+.quote-article {
+    width: 40vw;
+    min-width: 400px;
+}
+
 .quote {
-    font-size: 20px;
-    width: 50%;
+    font-size: 25px;
+    font-style: italic;
+    margin: 0;
 }
 
 .by-who {
-    font-style: italic;
-    font-size: 13px;
+    font-size: 15px;
 }
 </style>

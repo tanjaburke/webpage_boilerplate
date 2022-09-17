@@ -1,11 +1,12 @@
 <template>
     <section
-        class="hero-wrapper h-100 w-100"
+        class="hero-wrapper h-100"
         >
         <article class="hero-text m-blok w-100">
-            <h1 v-if="blok.headline">{{ blok.headline }}</h1>
+            <h1 > blok.headline </h1>
             <RichTextRenderer v-if="blok.text" :document="blok.text"></RichTextRenderer>
         </article>
+        <div class="w-100 pink-overlay"></div>
         <div v-if="blok.images.length===1" class="image-center-cropped" :style="{ 'background-image': `url(${blok.images[0].filename})` }"></div>
         <swiper v-else
             class="w-100"
@@ -56,47 +57,40 @@ export default {
     data() {
         return {
             modules: [Navigation, Autoplay, A11y, EffectFade],
-              
         }
     },
-    mounted(){
-        console.log(toRaw(this.blok));
-        
-    },
-    methods: {
-    onSwiper(swiper) {
-        console.log(swiper);
-      },
-      onSlideChange() {
-        console.log('slide change');
-      },
-    }
+
 }
 </script>
 
-<style>
-p {
-    margin: 0 !important
-}
-
+<style lang="scss">
 .hero-wrapper {
     position: relative;
     display: flex;
     justify-content: center;
     align-content: center;
+}
+
+.pink-overlay {
+    background-color: $color-dark-pink;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    height: calc(100vh - 50px);
+    width: 100%;
+    opacity: 0.7;
 
 }
+
 .hero-text {
     position: absolute;
     z-index: 10;
     top: 0;
-
-    
 }
 
 .image-center-cropped {
   width: 100%;
-  height: 500px;
+  height: calc(100vh - 50px);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -107,8 +101,6 @@ p {
 .image-center-cropped img {
   min-height: 100%;
   min-width: 100%;
-  /* IE 8 */
-  /* modern browsers */
 }
 
 .swiper-button-next::after,
