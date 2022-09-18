@@ -14,5 +14,8 @@ export default {
             required: true
         }
     },
+    mounted(){
+       console.log(9);
+    }
 }
 </script>

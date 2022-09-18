@@ -1,16 +1,10 @@
 <template>
-    <div class="navigation w-100 flex js-e al-c" :style="{ backgroundColor: '#'+blok.reference.content.backgroundColor }">
-        <ul class="w-100 flex js-e al-c" :style="{ color: '#'+blok.reference.content.fontColor }">
-            <template v-for="item in blok.reference.content.navigation" :key="item._uid">
-                <template v-if="item.logo && item.logo[0].name && item.logo[0].logo.filename.length === 0">
-                    <NuxtLink class="m-xs text-none logo" to="/" :style="{ color: '#'+blok.reference.content.fontColor }">{{ item.logo[0].name }}</NuxtLink>
-                </template>
-                    <template v-if="item.logo && item.logo[0].logo.filename.length > 0">
-                        <NuxtLink class="m-xs text-none logo" to="/"><img :src="item.logo[0].logo.filename" alt=""></NuxtLink>
-                    </template>
-                    <NuxtLink class="m-xs text-none menu-item"
-                    :style="{ color: '#'+blok.reference.content.fontColor }" v-else :to="`/${item.item.cached_url}`">{{ item.itemTitle }}</NuxtLink>
-            </template>
+    <div class="navigation w-100 flex js-e al-c" >
+        <ul class="w-100 flex js-e al-c">
+            <NuxtLink class="m-xs text-none menu-item" 
+                v-for="item in blok" :key="item._uid"
+                :to="`/${item.item.cached_url}`">{{ item.itemTitle }}
+            </NuxtLink>
         </ul>
     </div>
 </template>
@@ -23,11 +17,9 @@ export default {
             required: true
         }
     },
-        data() {
-        return {
-            story: '',
-        }
-    },
+    mounted(){
+        console.log(toRaw(this.blok));
+    }
 }
 </script>
 

@@ -11,10 +11,13 @@ export default {
     },
     mounted() {
         this.getData();
+       
     },
     methods: {
         async getData(){
             this.story = await useStoryblok('home', { version: 'draft', resolve_relations: 'navigation.reference' });
+            console.log(toRaw(this.story));
+            
         }
     }
 }
