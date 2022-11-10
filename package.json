@@ -8,10 +8,10 @@
   },
   "devDependencies": {
     "@marvr/storyblok-rich-text-vue-renderer": "^3.2.1",
-    "nuxt": "3.0.0-rc.8"
+    "nuxt": "^3.0.0-rc.13"
   },
   "dependencies": {
-    "@storyblok/nuxt": "^4.1.3",
+    "@storyblok/nuxt": "^4.4.2",
     "axios": "^0.27.2",
     "postcss": "^8.4.16",
     "postcss-custom-media": "^8.0.2",

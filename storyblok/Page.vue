@@ -15,7 +15,7 @@ export default {
         }
     },
     mounted(){
-       console.log(9);
+       console.log("tjos is where it a");
     }
 }
 </script>

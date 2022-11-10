@@ -1,6 +1,6 @@
 <template>
     <section
-        class="hero-wrapper h-100"
+        class="hero-wrapper"
         >
         <article class="hero-text m-blok w-100">
             <h1 > blok.headline </h1>
@@ -70,17 +70,7 @@ export default {
     display: flex;
     justify-content: center;
     align-content: center;
-}
-
-.pink-overlay {
-    background-color: $color-dark-pink;
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    height: calc(100vh - 50px);
-    width: 100%;
-    opacity: 0.7;
-
+    height: 300px;
 }
 
 .hero-text {
