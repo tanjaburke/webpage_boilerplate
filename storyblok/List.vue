@@ -5,11 +5,9 @@
                 <component :is="item.component" :blok="item"/>
             </div>
         </template> -->
-        <template>
             <div v-for="item in blok" :key="item._uid">
-                <component v-if="item.content.type" :is="`${item.content.type.name}Card`" :blok="item"/>
+                <component v-if="item.content.type" :is="`${item.content.type.name}Card`" :item="item"/>
             </div>
-        </template>
     </section>
 </template>
 
