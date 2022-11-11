@@ -20,7 +20,7 @@ export default class ApiService {
         
         return storyblokApi.get(config.storiesUrl , {
             version: config.config.public.VERSION,
-            resolve_relations: ['articleType.topMenu','articleType.tags'],
+            resolve_relations: ['articleType.topMenu','articleType.tags','articleType.type'],
             ...params
           }).then((res) => {
             return (res.data)
