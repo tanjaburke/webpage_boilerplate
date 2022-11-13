@@ -1,16 +1,16 @@
 <template>
   <section class="blok container">
       <article class="column flex-col">
-           <RichTextRenderer :document="blok.firstColumn"></RichTextRenderer>
+           <RichText :textBlock="blok.firstColumn"></RichText>
       </article>
       <article class="column flex-col">
-            <RichTextRenderer :document="blok.secondColumn"></RichTextRenderer>
+            <RichText :textBlock="blok.secondColumn"></RichText>
       </article>
   </section>
 </template>
 
 <script lang="ts">
-import { RichTextRenderer } from '@marvr/storyblok-rich-text-vue-renderer'
+import RichText from './atoms/RichText.vue';
 export default {
     props: {
         blok: {
@@ -19,7 +19,7 @@ export default {
         }
     },
     components: {
-        RichTextRenderer
+        RichText
     },
     data() {
         return {
