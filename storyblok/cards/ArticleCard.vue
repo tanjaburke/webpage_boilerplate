@@ -1,16 +1,13 @@
 <template>
-    <NuxtLink to="/">
+    <NuxtLink :to="`/${item.full_slug}`">
         <h3>{{ item.content.title }}</h3>
         <p>{{ item.published_at }}</p>
-        <RichText :textBlock="item.content.text"></RichText>
-        {{item}}
+        <p class="line-clamp-2">{{ item.content.excerpt }}</p>
     </NuxtLink>
 </template>
 
 <script lang="ts">
-import RichText from '../RichText.vue';
 export default {
-  components: { RichText },
     props: {
         item: {
             type: Object,
@@ -18,8 +15,7 @@ export default {
         }
     },
     mounted(){
-        console.log(toRaw(this.item.content));
-        
+        console.log("ARTICLE in card", toRaw(this.item));
     }
 }
 </script>

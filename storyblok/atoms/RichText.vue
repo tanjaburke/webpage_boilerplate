@@ -1,5 +1,5 @@
 <template>
-           <RichTextRenderer :document="textBlock"></RichTextRenderer>
+    <RichTextRenderer :document="textBlock" :class="{}"></RichTextRenderer>
 </template>
 
 <script lang="ts">
@@ -16,3 +16,4 @@ export default {
     },
 };
 </script>
+

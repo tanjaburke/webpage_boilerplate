@@ -19,9 +19,5 @@ export default {
             required: true
         }
     },
-    mounted() {
-        console.log("BLOK in List", toRaw(this.blok));
-        
-    }
 };
 </script>

@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import RichText from './RichText.vue';
+import RichText from './atoms/RichText.vue';
 export default {
     props: {
         blok: {
