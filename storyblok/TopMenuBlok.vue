@@ -1,27 +1,36 @@
 <template>
-        <h3>TOPMENUBLOK</h3>
-        <button class="top-menu" v-for="item in selected.stories" :key="item.uuid" @click="findArticles(item)">
-            {{ item.name }}
-        </button>
-        <NuxtLink to="category/category-test" blok="hello">NUXT LINK</NuxtLink>
-        <button class="sub-menu" v-for="tag in tags" :key="tag.uuid" @click="findTagArticles(tag.id)">
-            {{ tag.name }}
-        </button>
-        <div class="flex" v-for="article in articles.stories" :key="article._uid">
-            <p v-for="menu in article.content.topMenu" :key="menu._uid"> {{ menu.name }}</p>
-            <Article :article="article"/>
-        </div>
+    <section class="flex">
+        <article class="menu-list flex-col">
+            <transition-group name="slide-fade" tag="article" class="menu-list flex-col">
+                <button class="top-menu list-item" :style="`transition-delay: 0.${index*2}s`" v-for="(item, index) in selected.stories" :key="item.uuid" @click="findArticles(item.uuid)">
+                    {{ item.name }}
+                </button>
+            </transition-group>
+        </article>
+        <article v-if="topMenuSelected"
+            class="w-100 flex-col">
+            <section class="flex w-100">
+            <transition-group appear name="fade" class="menu-list flex-col">
+                <button :style="`transition-delay: 0.${index*2}s`" v-for="(tag, index) in tags" :key="tag.id">{{ tag.name }}{{index}}</button>
+            </transition-group>
+            </section>
+            <transition-group name="fade"  class=" menu-list flex-col">
+                <List :style="`transition-delay: 0.${index*2}s`" v-if="articles && articles.stories" :blok="articles.stories"></List>
+            </transition-group>
+        </article>
+    </section>
 </template>
 
-<script lang="ts">
+<script >
 import ApiService from './../services/apiService'
 export default {
     data() {
         return {
             selected: Object,
-            articles: Object,
-            tags: [],
             selectedId: '',
+            articles: {},
+            tags: [],
+            topMenuSelected: false,
         }
     },
     mounted() {
@@ -31,35 +40,37 @@ export default {
         async getData(){
             this.selected = await ApiService.getStories({starts_with: 'menus/'})
         },
-        async findArticles(item){
-            await navigateTo('category/' + item.name + '-' + item.uuid);
-            // this.selectedId = id;
-            // this.articles = await ApiService.getStories({
-            //     starts_with: 'articles/', 
-            //     filter_query: {
-            //         topMenu: {
-            //         in_array: id
-            //         },
-            //     },
-            // });
-
+        async findArticles(id){
+            this.topMenuSelected = false;
             // this.tags = [];
+            // await navigateTo('category/' + item.name + '-' + item.uuid);
+            this.selectedId = id;
+            this.articles = await ApiService.getStories({
+                starts_with: 'articles/', 
+                filter_query: {
+                    topMenu: {
+                    in_array: id
+                    },
+                },
+            });
 
-            // for (let i = 0; i < this.articles.stories.length; i++){
-                
-            //     this.articles.stories[i].content.tags.map(item => {
+            console.log("SELECTED ARTICLES", toRaw(this.articles));
+            
+            for (let i = 0; i < this.articles.stories.length; i++){
+                this.articles.stories[i].content.tags.map(item => {
+                    // console.log("This is the"+ i + "tag item in for loop", toRaw(item));
                     
-            //         if (item && this.tags.filter(e => e.name === item.name).length === 0) {
-            //            this.tags.push({ name : item.name, id: item.uuid })
-            //         } else {
-            //             this.tags = []
-            //         }
-            //     })
-            // }
+                    console.log("tags list name", toRaw(this.tags));
+                    if (item && this.tags.filter(e => e.name === item.name).length === 0) {
+
+                       this.tags.push({ name : item.name, id: item.uuid })
+                    }
+                })
+            }
+            // console.log("LAST", toRaw(this.tags));
+            this.topMenuSelected = true;
         },
         async findTagArticles(id){
-
-            
             this.articles = await ApiService.getStories({
                 starts_with: 'articles/', 
                 filter_query: {
@@ -82,3 +93,26 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+// .slide-fade-leave-active {
+//   transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+// }
+
+.slide-fade-enter-from {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+.fade-enter-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from {
+  opacity: 0;
+}
+</style>

@@ -3,7 +3,7 @@
         class="hero-wrapper"
         >
         <article class="hero-text m-blok w-100">
-            <h1 > blok.headline </h1>
+            <h1> {{blok.headline}} </h1>
             <RichTextRenderer v-if="blok.text" :document="blok.text"></RichTextRenderer>
         </article>
         <div class="w-100 pink-overlay"></div>
@@ -80,12 +80,13 @@ export default {
 }
 
 .image-center-cropped {
-  width: 100%;
-  height: calc(100vh - 50px);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 /* Set the image to fill its parent and make transparent */
