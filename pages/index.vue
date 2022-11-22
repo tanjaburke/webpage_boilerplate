@@ -6,7 +6,7 @@
 export default {
     data() {
         return {
-            story: Object,
+            story: {},
             selected: Object,
             articles: Object,
             tags: [],
@@ -19,7 +19,7 @@ export default {
     },
     methods: {
         async getData(){
-            this.story = await useStoryblok('home', { version: 'draft', resolve_relations: 'navigation.reference' });
+            this.story = await useStoryblok('home', { version: 'draft'});
         }
     }
 }

@@ -1,4 +1,6 @@
 <template>
+<h1>PAGE</h1>
+
   <div v-for="blok in blok.body" :key="blok._uid" :style="{backgroundColor: '#'+blok.backgroundColor}">
    <StoryblokComponent
       :blok="blok"

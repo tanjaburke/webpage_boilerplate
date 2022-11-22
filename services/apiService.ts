@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 class Config {
     config;
     storyblokApi;
@@ -14,6 +12,10 @@ class Config {
 }
 
 export default class ApiService {
+    public static getPageContent(url?: string) {
+      return useStoryblok( url? url : 'home', { version: 'draft', resolve_relations: 'title.class' });
+    }
+
     public static getStories(params: object) {
         const config = new Config();
         const storyblokApi = config.storyblokApi;

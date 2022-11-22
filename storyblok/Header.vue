@@ -1,7 +1,7 @@
 <template>
     <section v-if="header">
         <img class="logo" src="" alt="">
-        <Navigation :blok="header.content.header_menu"/>
+        <!-- <Navigation :blok="header.content.header_menu"/> -->
     </section>
 </template>
 
@@ -9,7 +9,7 @@
 export default {
     data() {
         return {
-            header: '',
+            header: {},
         }
     },
     mounted() {
