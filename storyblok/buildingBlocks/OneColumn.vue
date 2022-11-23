@@ -1,5 +1,5 @@
 <template>
-  <section class="blok container">
+  <section :class="`blok container ${blok.backgroundColor}`">
         <template  v-for="blok in blok.content" :key="blok._uid" >
             <component v-if="blok" :is="blok.component" :blok="blok"/>
         </template>
@@ -7,7 +7,6 @@
 </template>
 
 <script lang="ts">
-import RichText from './atoms/RichText.vue';
 export default {
     props: {
         blok: {
@@ -15,17 +14,8 @@ export default {
             required: true
         }
     },
-    components: {
-        RichText
-    },
-    data() {
-        return {
-            myInnerHTML: "",
-        };
-    },
     mounted(){
         console.log("in one ", toRaw(this.blok));
-        
     }
 
 };

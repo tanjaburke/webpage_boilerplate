@@ -1,5 +1,5 @@
 <template>
-    <RichTextRenderer :document="blok" :class="{}"></RichTextRenderer>
+    <RichTextRenderer :document="blok.text" :class="{}"></RichTextRenderer>
 </template>
 
 <script lang="ts">
@@ -13,7 +13,7 @@ export default {
     },
     components: {
         RichTextRenderer
-    },
-};
+    }
+}
 </script>
 
