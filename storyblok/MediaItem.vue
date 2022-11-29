@@ -32,8 +32,5 @@ export default {
             required: true
         }
     },
-    mounted(){
-        console.log('MEDIA ITEM', toRaw(this.blok));
-    }
 };
 </script>

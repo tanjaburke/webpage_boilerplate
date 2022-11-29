@@ -23,18 +23,6 @@ a {
   font-weight: bold;
 }
 
-.card {
-  height: 80px;
-  width: 60%;
-  width: calc(100% - 40px);
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  padding: var(--box-padding);
-  margin: var(--box-margin);
-  background-color: var(--color-dark-pink);
-  color: var(--color-pink);
-  border-radius: 5px;
-}
-
 h1 {
   font-size: 50px;
   font-family: Helvetica;

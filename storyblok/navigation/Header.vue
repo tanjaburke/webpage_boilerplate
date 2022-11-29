@@ -19,7 +19,6 @@ export default {
     methods: {
         async getData(){
             this.header = await useStoryblok('config', { version: 'draft' }) as Header;
-            console.log("This eader",toRaw(this.header.content?.headerMenu));
         }
     }
 }
