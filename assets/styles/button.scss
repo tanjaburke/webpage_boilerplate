@@ -21,3 +21,19 @@
   border-radius: 10px;
   height: 30px;
 }
+
+.border-black {
+  border: solid 1px $color-black;
+}
+
+.border-white {
+  border: solid 1px white;
+}
+
+.border-primary {
+  border: solid 1px $color-primary;
+}
+
+.border-secondary {
+  border: solid 1px $color-secondary;
+}

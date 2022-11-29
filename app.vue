@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Header from './storyblok/Header.vue'
+import Header from './storyblok/navigation/Header.vue'
 export default {
   components: {
     Header

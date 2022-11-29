@@ -1,10 +1,12 @@
 <template>
     <div class="navigation w-100 flex js-e al-c" >
         <ul class="w-100 flex js-e al-c">
-            <NuxtLink class="m-xs text-none menu-item" 
-                v-for="item in blok" :key="item._uid"
-                :to="`/${item.item.cached_url}`">{{ item.itemTitle }}
-            </NuxtLink>
+            <template v-for="item in blok.headerMenu" :key="item._uid">
+                <NuxtLink class="m-xs text-none menu-item" v-if="item.link.linktype === 'story'"
+                    :to="`/${item.link.cached_url}`">{{ item.title }}
+                </NuxtLink>
+                <a v-else :href="`https://${item.link.cached_url}`" target="_blank">A{{ item.title }}</a>
+            </template>
         </ul>
     </div>
 </template>
@@ -18,13 +20,12 @@ export default {
         }
     },
     mounted(){
-        console.log(toRaw(this.blok));
+        console.log("nav", toRaw(this.blok));
     }
 }
 </script>
 
 <style lang="scss">
-
     .navigation {
         z-index: 10;
         height: 50px;
@@ -43,9 +44,5 @@ export default {
        & img {
             height: 30px;
         }
-    }
-
-    .mmm {
-        align-self: flex-start;
     }
 </style>
