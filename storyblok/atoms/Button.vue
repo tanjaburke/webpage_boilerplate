@@ -1,5 +1,5 @@
 <template>
-    <button :class="['button', blok.backgroundColor, blok.textColor]"> {{blok.backgroundColor}} </button>
+    <button :class="`button ${blok.backgroundColor} ${blok.textColor} ${blok.borderColor}`"> {{blok.borderColor}} </button>
 </template>
 
 <script lang="ts">

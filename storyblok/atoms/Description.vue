@@ -1,5 +1,5 @@
 <template>
-    <p :class="['description', blok.class]"> {{blok.description}}</p>
+    <p :class="['description', blok.textColor]"> {{blok.description}}</p>
 </template>
 
 <script lang="ts">
