@@ -3,11 +3,20 @@
 $box-padding: 15px;
 $blok-padding: 30px;
 $small-margin: 15px;
+$tiny-margin: 7px;
 $blok-margin: 30px;
+$pad-inner: 45px;
+$pad-inner-mobile: 25px;
+
+// margin
+$button-margin: 25px;
+$button-margin-mobile: 15px;
 
 $color-primary: #ee6ea7;
 $color-secondary: #f8f8f8;
 $color-black: #191b1d;
+
+$color-grey: #f8f8f8;
 
 $viewport-phone-max: 767px;
 $viewport-tablet-min: 768px;
@@ -19,6 +28,5 @@ $button-rounded: 8px;
 /* Typography
   ********************/
 $base-font-family: "Apercu";
-$base-font-size: 12px;
-$base-font-size-lg: 15px;
-$base-font-weight: 300;
+$header-font-size: 14px;
+$header-font-weight: bold;

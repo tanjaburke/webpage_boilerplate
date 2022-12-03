@@ -55,6 +55,8 @@ export default {
     .image-center-cropped {
         position: absolute;
         width: 100%;
+        left: 0;
+        bottom: 0;
         height: inherit;
         background-size: cover;
         background-position: center center;
@@ -64,13 +66,16 @@ export default {
 
     /* Set the image to fill its parent and make transparent */
     .image-center-cropped img {
-    min-height: 100%;
-    min-width: 100%;
+        min-height: 100%;
+        min-width: 100%;
     }
 
     .my-swiper {
         height: 100%;
+        width: 100%;
         position: absolute;
+        left: 0;
+        bottom: 0;
     }
 
     .swiper-button-next::after,

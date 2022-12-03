@@ -1,9 +1,9 @@
 <template>
-  <div v-for="blok in blok.body" :key="blok._uid" :style="{backgroundColor: '#'+blok.backgroundColor}">
+  <template v-for="blok in blok.body" :key="blok._uid" :style="{backgroundColor: '#'+blok.backgroundColor}">
    <StoryblokComponent
       :blok="blok"
     />
-  </div>
+  </template>
 </template>
 
 <script lang="ts">

@@ -9,10 +9,6 @@
                 type: Object,
                 required: true
             },
-        },
-        mounted(){
-            console.log("this. is blok", toRaw(this.blok));
-            
         }
     }
 </script>

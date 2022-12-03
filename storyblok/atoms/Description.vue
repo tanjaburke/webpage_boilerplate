@@ -12,9 +12,3 @@
         }
     }
 </script>
-
-<style lang="scss">
-    .description {
-        margin-top: 0;
-    }
-</style>

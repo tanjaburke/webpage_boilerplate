@@ -6,3 +6,14 @@
     width: 100%;
   }
 }
+
+.inner {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 $pad-inner;
+
+  @media only screen and (max-width: $phone-max) {
+    padding: 0 $pad-inner-mobile;
+  }
+}

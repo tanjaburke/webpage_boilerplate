@@ -1,6 +1,5 @@
 <template>
-    <article class="hero-wrapper">
-        <h1 class="ninety">HERO</h1>
+    <article class="hero-wrapper inner">
         <template  v-for="blok in blok.content" :key="blok._uid" >
             <component v-if="blok" :is="blok.component" :blok="blok"/>
         </template>
@@ -26,26 +25,25 @@ export default {
     justify-content: flex-end;
     align-content: center;
     height: 500px;
+    padding: $pad-inner;
 
     @media only screen and (max-width: $phone-max) {
         height: 300px;
-    }
-
-    .ninety {
-        font-size: 60px !important;
+        padding: $pad-inner-mobile;
     }
 
     .title, 
     .description, 
     .button {
         z-index: 10;
-        margin-left: $blok-margin*2;
     }
 
+    .description,
     .button {
-        margin-bottom: $blok-margin;
-        margin-top: $blok-margin;
+        font-size: clamp(16px, 11px + 0.9vw, 18px);
+        line-height: clamp(21px, 11px + 0.9vw, 24px);
     }
+
 }
 
    
