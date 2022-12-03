@@ -9,3 +9,11 @@ export interface Image {
     name: string,
     title: string
 }
+
+export interface Link {
+    cached_url: string,
+    fieldtype: string,
+    id: string,
+    linktype: string,
+    url: string
+}

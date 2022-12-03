@@ -1,43 +1,29 @@
-.page-header,
-.large-header,
-.medium-header,
-.small-header {
-  font-family: Helvetica;
+@font-face {
+  font-weight: 300;
+  font-style: normal;
+  font-family: "Apercu";
+  src: url(./../fonts/ApercuRegular.otf) format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 600;
+  font-family: "Apercu";
+  font-style: normal;
+  src: url(./../fonts/ApercuMedium.otf) format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 200;
+  font-family: "Apercu";
+  src: url(./../fonts/ApercuLight.otf) format("opentype");
+  font-display: swap;
+}
+
+@font-face {
   font-weight: 800;
-  color: $color-black;
-  margin: 10px;
-}
-
-.page-header {
-  font-size: 40px;
-}
-
-.large-header {
-  font-size: 35px;
-}
-
-.medium-header {
-  font-size: 25px;
-}
-
-.small-header {
-  font-size: 15px;
-}
-
-@media only screen and (min-width: $desktop-min) {
-  .page-header {
-    font-size: 90px;
-  }
-
-  .large-header {
-    font-size: 55px;
-  }
-
-  .medium-header {
-    font-size: 35px;
-  }
-
-  .small-header {
-    font-size: 20px;
-  }
+  font-family: "Apercu";
+  src: url(./../fonts/ApercuBold.otf) format("opentype");
+  font-display: swap;
 }

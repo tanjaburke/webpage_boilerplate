@@ -1,5 +1,5 @@
 <template>
-    <p :class="['description', blok.textColor]"> {{blok.description}}</p>
+    <p :class="['description', blok.textColor? blok.textColor: '']"> {{blok.description}}</p>
 </template>
 
 <script lang="ts">
@@ -15,7 +15,6 @@
 
 <style lang="scss">
     .description {
-        font-family: helvetica;
         margin-top: 0;
     }
 </style>

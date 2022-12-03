@@ -1,19 +1,25 @@
 <template>
-    <div class="card flex" :style="{'height': height ? height + 'px' : '80px' }">
-        <template  v-for="blok in blok.content" :key="blok._uid" >
-            <div v-if="blok && blok.component === 'image'" :style="{ 'background-image': 'url(' + blok.image.filename + ')', 'height': height ? height + 'px' : '80px',  'width': height ? height + 'px' : '80px', }" class="image"/>
-        </template>
-        <div class="flex-col">
-            <template  v-for="blok in blok.content" :key="blok._uid" >
-                <component v-if="blok && blok.component !== 'image'" :is="blok.component" :blok="blok"/>
-            </template>
+    <a :class="`card ${bgColor}`" v-if="blok.link.linktype === 'url'"  :href="blok.link.url.includes('https') ? blok.link.url : `https://${blok.link.url}`">
+        <div v-if="blok.image" :style="{ 'background-image': 'url(' + blok.image.filename + ')', 'height': height ? height : '80px',  'width': width ? width: '80px', }" class="image"/>
+        <div class="card-text flex-col">
+            <BlokTitle v-if="blok.title" :blok="blok" :class="[headerType, textColor]"/>
+            <Description v-if="blok.description" :blok="blok" :class="[textColor, lineClamp]"/>
         </div>
-
-    </div>
+    </a>
+    <a :class="`card ${bgColor}`" v-else :href="blok.link.url">
+        <div v-if="blok.image" :style="{ 'background-image': 'url(' + blok.image.filename + ')', 'height': height ? height : '80px',  'width': width ? width : '80px', }" class="image"/>
+        <div class="card-text flex-col" >
+            <BlokTitle v-if="blok.title" :blok="blok" :class="[headerType, textColor]"/>
+            <Description v-if="blok.description" :blok="blok" :class="[textColor, lineClamp]"/>
+        </div>
+    </a>
 </template>
 
 <script lang="ts">
-    export default {
+import BlokTitle from '../atoms/BlokTitle.vue';
+import Description from '../atoms/Description.vue';
+export default {
+  components: { BlokTitle, Description },
         props: {
             blok: {
                 type: Object,
@@ -22,29 +28,95 @@
             height: {
                 type: String,
                 required: false
+            },
+            width: {
+                type: String,
+                required: false
+            },
+            headerType: {
+                type: String,
+                required: false
+            },
+            bgColor: {
+                 ype: String,
+                required: false
+            },
+            textColor: {
+                type: String,
+                required: false
+            },
+            lineClamp: {
+                type: String,
+                required: false
             }
-        },
-        mounted(){
-            console.log("CARD", toRaw(this.blok));
-            
         }
     };
 </script>
 
 <style lang="scss">
+.card:hover {
+        background-color: #e9e9e9
+}
 .list {
     .card {
-        height: 80px;
+        display: flex;
         width: 100%;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         padding: $box-padding;
-        margin: $box-margin;
+        margin: 0 $small-margin $small-margin $small-margin;
         border-radius: 5px;
 
         .image {
             background-repeat: no-repeat;
             background-position: center;
+            margin-right: $small-margin;
+            background-size: cover;
+
+             @media only screen and (max-width: $phone-max) {
+                 height: 80px !important;
+                 width: 80px !important;
+             }
         }
+
+        .card-text {
+            @media only screen and (max-width: $phone-max) {
+                width: calc(100% - 80px) !important;
+            }
+        }
+
+
+    }
+}
+
+.grid {
+    .card {
+        padding: $box-padding;
+        display: flex;
+        flex-direction: column;
+
+        .image {
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-bottom: $small-margin;
+            background-size: cover;
+            border-radius: $button-rounded;
+
+
+            //  @media only screen and (max-width: $phone-max) {
+            //      height: 80px !important;
+            //      width: 80px !important;
+            //  }
+        }
+
+        .card-text {
+            width: 100%; 
+
+            @media only screen and (max-width: $phone-max) {
+                width: calc(100% - 80px) !important;
+            }
+        }
+
+
     }
 }
 </style>

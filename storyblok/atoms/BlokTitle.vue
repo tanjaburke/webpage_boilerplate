@@ -1,5 +1,5 @@
 <template>
-    <h2 :class="['title', blok.type, blok.color]"> {{blok.title}}</h2>
+    <h2 :class="['title', blok.type? blok.type : '', blok.color? blok-color : '']"> {{blok.title}}</h2>
 </template>
 
 <script lang="ts">
@@ -8,7 +8,11 @@
             blok: {
                 type: Object,
                 required: true
-            }
+            },
+        },
+        mounted(){
+            console.log("this. is blok", toRaw(this.blok));
+            
         }
     }
 </script>

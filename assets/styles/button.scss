@@ -1,7 +1,9 @@
 .button {
   width: 200px;
-  border-radius: 10px;
-  height: 30px;
+  border-radius: $button-rounded;
+  height: 40px;
+  border: none;
+  cursor: pointer;
 }
 
 .top-menu {

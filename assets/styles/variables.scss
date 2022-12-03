@@ -2,11 +2,11 @@
 
 $box-padding: 15px;
 $blok-padding: 30px;
-$box-margin: 15px;
+$small-margin: 15px;
 $blok-margin: 30px;
 
 $color-primary: #ee6ea7;
-$color-secondary: #931c54;
+$color-secondary: #f8f8f8;
 $color-black: #191b1d;
 
 $viewport-phone-max: 767px;
@@ -14,4 +14,11 @@ $viewport-tablet-min: 768px;
 $viewport-tablet-max: 991px;
 $viewport-desktop-min: 992px;
 
-$color: red;
+$button-rounded: 8px;
+
+/* Typography
+  ********************/
+$base-font-family: "Apercu";
+$base-font-size: 12px;
+$base-font-size-lg: 15px;
+$base-font-weight: 300;

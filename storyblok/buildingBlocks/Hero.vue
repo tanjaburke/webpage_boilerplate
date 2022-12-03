@@ -1,5 +1,6 @@
 <template>
     <article class="hero-wrapper">
+        <h1 class="ninety">HERO</h1>
         <template  v-for="blok in blok.content" :key="blok._uid" >
             <component v-if="blok" :is="blok.component" :blok="blok"/>
         </template>
@@ -22,12 +23,16 @@ export default {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     align-content: center;
     height: 500px;
 
     @media only screen and (max-width: $phone-max) {
         height: 300px;
+    }
+
+    .ninety {
+        font-size: 60px !important;
     }
 
     .title, 
