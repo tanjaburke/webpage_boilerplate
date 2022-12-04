@@ -66,25 +66,3 @@ p {
   line-height: clamp(20px, 14px + 0.5vw, 21px);
   margin: 0;
 }
-
-@media only screen and (max-width: $phone-max) {
-  //   .page-header {
-  //     font-size: 40px;
-  //   }
-
-  //   .large-header {
-  //     font-size: 35px;
-  //   }
-
-  //   .medium-header {
-  //     font-size: 20px;
-  //   }
-
-  //   .small-header {
-  //     font-size: 15px;
-  //   }
-
-  //   p {
-  //     font-size: 14px;
-  //   }
-}
