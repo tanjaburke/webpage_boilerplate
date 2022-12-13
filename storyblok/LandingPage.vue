@@ -9,7 +9,7 @@
             </div>
     </section>
 </template>
-<script lang="ts">
+  <script>
 import ApiService from '../services/apiService'
 import Article from './Article.vue'
 
@@ -31,7 +31,7 @@ import Article from './Article.vue'
         this.topMenus = await ApiService.getStories({starts_with: 'menus/'});
       },
 
-      async findArticles(id: String){
+      async findArticles(id){
             this.articles = await ApiService.getStories({
                 starts_with: 'articles/', 
                 filter_query: {

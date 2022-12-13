@@ -17,7 +17,7 @@
 import Navigation from './Navigation.vue';
 import ModalFull from './../buildingBlocks/ModalFull.vue';
 
-import { useWindowWidth } from './../../composables/windowWidth';
+import { useWindowWidth } from '../../composables/windowWidth';
 
 const { mobile} = useWindowWidth();
 const menuIsOpen =ref(false)

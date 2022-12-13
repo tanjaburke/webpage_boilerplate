@@ -3,7 +3,7 @@
         {{article.content.title }}
     </section>
 </template>
-<script lang="ts">
+  <script>
 export default {
     props: {
         article: {

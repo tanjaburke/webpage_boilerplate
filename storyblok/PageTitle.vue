@@ -2,7 +2,7 @@
  <h1 class="blok">{{ blok.pageTitle }}</h1>
 </template>
 
-<script lang="ts">
+<script>
 export default {
     props: {
         blok: {

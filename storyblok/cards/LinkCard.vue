@@ -23,7 +23,7 @@
     </a> -->
 </template>
 
-<script lang="ts">
+  <script>
 import BlokTitle from '../atoms/BlokTitle.vue';
 import Description from '../atoms/Description.vue';
 import DateString from '../atoms/DateString.vue';

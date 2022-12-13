@@ -2,7 +2,7 @@
     <button :class="`button ${blok.backgroundColor} ${blok.textColor} ${blok.borderColor}`"> {{blok.title}} </button>
 </template>
 
-<script lang="ts">
+  <script>
 export default {
     props: {
         blok: {

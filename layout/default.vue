@@ -3,7 +3,7 @@
     <NuxtPage />
 </template>
 
-<script lang="ts">
+  <script>
 import Navigation from '..Navigation.vue'
     export default {
         components: {

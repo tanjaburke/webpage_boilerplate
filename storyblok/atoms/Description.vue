@@ -2,7 +2,7 @@
     <p :class="['description', blok.textColor? blok.textColor: '']"> {{blok.description}}</p>
 </template>
 
-<script lang="ts">
+  <script>
     export default {
         props: {
             blok: {

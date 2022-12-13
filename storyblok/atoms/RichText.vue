@@ -4,7 +4,7 @@
     </section>
 </template>
 
-<script lang="ts">
+  <script>
 import { RichTextRenderer } from '@marvr/storyblok-rich-text-vue-renderer'
 export default {
     props: {

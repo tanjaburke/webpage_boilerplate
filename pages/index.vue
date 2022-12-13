@@ -2,7 +2,7 @@
     <StoryblokComponent v-if="story && story.content" :blok="story.content" />
 </template>
 
-<script lang="ts">
+  <script>
 export default {
     data() {
         return {

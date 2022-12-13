@@ -1,7 +1,7 @@
 <template>
 <button @click="gotr()">BLOG - SLUG</button>
 </template>
-<script lang="ts">
+  <script>
 import ApiService from '../../services/apiService'
 
   export default {

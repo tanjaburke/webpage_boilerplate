@@ -21,7 +21,7 @@
     </section>
 </template>
 
-<script >
+<script>
 import ApiService from './../services/apiService'
 export default {
     data() {

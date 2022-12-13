@@ -23,7 +23,7 @@
         <div v-if="blok.images.length>1" class="swiper-button-prev"></div>
 </template>
  
-<script lang="ts">
+  <script>
  // import Swiper core and required modules
 import { Navigation, A11y, Autoplay, EffectFade } from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/vue'

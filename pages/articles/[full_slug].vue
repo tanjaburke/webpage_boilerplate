@@ -13,7 +13,7 @@
 
 </template>
 
-<script lang="ts">
+  <script>
 import RichText from '../../storyblok/atoms/RichText.vue';
 import DateString from '../../storyblok/atoms/DateString.vue';
 import ApiService from '../../services/apiService'

@@ -4,17 +4,17 @@ import { defineNuxtConfig } from 'nuxt/config'
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
     modules: [['@storyblok/nuxt', { accessToken: process.env.API_KEY }]],
-  ssr: true,
-  vite: {
-    css: {
-        preprocessorOptions: {
-            scss: {
-                additionalData: '@import "@/assets/styles/variables.scss"; @import "@/assets/styles/mediaqueries.scss";',
+    ssr: true,
+    vite: {
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    additionalData: '@import "@/assets/styles/variables.scss"; @import "@/assets/styles/mediaqueries.scss";',
+                },
             },
         },
-    },
-    
 },
+
 css: ['@/assets/styles/index.scss'],
 
 runtimeConfig: {

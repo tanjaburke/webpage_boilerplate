@@ -2,7 +2,7 @@
    <p>{{ new Date(date).toLocaleString("da-DK", {dateStyle: "long"}) }}</p>
 </template>
 
-<script lang="ts">
+  <script>
 export default {
     props: {
         date: {
