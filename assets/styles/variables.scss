@@ -2,16 +2,31 @@
 
 $box-padding: 15px;
 $blok-padding: 30px;
-$box-margin: 15px;
+$small-margin: 15px;
+$tiny-margin: 7px;
 $blok-margin: 30px;
+$pad-inner: 45px;
+$pad-inner-mobile: 25px;
 
-$color-pink: #ee6ea7;
-$color-dark-pink: #931c54;
+// margin
+$button-margin: 25px;
+$button-margin-mobile: 15px;
+
+$color-primary: #931c54;
+$color-secondary: #ee6ea7;
 $color-black: #191b1d;
+
+$color-grey: #f8f8f8;
 
 $viewport-phone-max: 767px;
 $viewport-tablet-min: 768px;
 $viewport-tablet-max: 991px;
 $viewport-desktop-min: 992px;
 
-$color: red;
+$button-rounded: 8px;
+
+/* Typography
+  ********************/
+$base-font-family: "Apercu";
+$header-font-size: 14px;
+$header-font-weight: bold;

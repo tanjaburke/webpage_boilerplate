@@ -1,41 +1,23 @@
-@import "variables";
 @import "mediaqueries";
+@import "variables";
 @import "grid";
 @import "utils";
-@import "image";
 @import "flex";
 @import "button";
 @import "articles";
+@import "fonts";
+@import "colors";
+@import "typography";
+@import "images";
 
 body {
   color: #333;
   margin: 0;
+  background-color: white;
 }
 
-p,
-a {
-  text-decoration: none;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-.card {
-  height: 80px;
-  width: 60%;
-  width: calc(100% - 40px);
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  padding: var(--box-padding);
-  margin: var(--box-margin);
-  background-color: var(--color-dark-pink);
-  color: var(--color-pink);
-  border-radius: 5px;
-}
-
-h1 {
-  font-size: 50px;
-  font-family: Helvetica;
-  font-weight: 600;
-  color: $color-black;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }

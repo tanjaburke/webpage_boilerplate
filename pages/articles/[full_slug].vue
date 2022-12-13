@@ -4,7 +4,11 @@
         <DateString :date="article.story.published_at"></DateString>
         <RichText :textBlock="article.story.content.text"></RichText>
         <h3>SOURVES - lav om til data</h3>
-        <a target="_blank" v-for="source in article.story.content.sources" :key="source._uid" :href="source.link.linktype === 'url' ? `https://${source.link.url}` : source.link.url">{{ source.title }}</a>
+        <template v-for="source in article.story.content.sources" :key="source._uid">
+         <a target="_blank" v-if="source.link.linktype === 'url'" :href="source.link.url.includes('https') ? source.link.url : `https://${source.link.url}`">{{ source.title }}</a>
+         <a target="_blank" v-else :href="source.link.url">{{ source.title }}</a>
+        </template>
+        
     </article>
 
 </template>

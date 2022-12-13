@@ -1,19 +1,21 @@
 <template>
-    <RichTextRenderer :document="textBlock" :class="{}"></RichTextRenderer>
+    <section class="inner-down">
+        <RichTextRenderer :document="blok.text"></RichTextRenderer>
+    </section>
 </template>
 
 <script lang="ts">
 import { RichTextRenderer } from '@marvr/storyblok-rich-text-vue-renderer'
 export default {
     props: {
-        textBlock: {
+        blok: {
             type: Object,
             required: true
         }
     },
     components: {
         RichTextRenderer
-    },
-};
+    }
+}
 </script>
 

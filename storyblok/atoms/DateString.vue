@@ -1,5 +1,5 @@
 <template>
-    {{ new Date(date).toLocaleString("da-DK", {dateStyle: "long"})  }}
+   <p>{{ new Date(date).toLocaleString("da-DK", {dateStyle: "long"}) }}</p>
 </template>
 
 <script lang="ts">

@@ -11,7 +11,7 @@
 </template>
 <script lang="ts">
 import ApiService from '../services/apiService'
-import Article from './buildingBlocks/Article.vue'
+import Article from './Article.vue'
 
   export default {
   components: { Article },

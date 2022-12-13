@@ -1,14 +1,31 @@
-.container {
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 900px) {
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-  }
-}
-
 .blok {
   padding: $blok-padding;
   width: calc(100% - $blok-padding * 2);
+
+  img {
+    width: 100%;
+  }
+}
+
+.inner {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 $pad-inner;
+
+  @media only screen and (max-width: $phone-max) {
+    padding: 0 $pad-inner-mobile;
+  }
+}
+
+.inner-full {
+  padding: $pad-inner;
+}
+
+.inner-top-down {
+  padding: $pad-inner 0;
+}
+
+.inner-down {
+  padding-bottom: $pad-inner;
 }
