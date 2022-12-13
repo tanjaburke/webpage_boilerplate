@@ -1,5 +1,5 @@
 <template>
-        <div v-if="blok.images.length===1" class="image-center-cropped" :style="{ 'background-image': `url(${blok.images[0].filename})` }"></div>
+        <div v-if="blok.images.length===1" class="image-center-cropped hero-image" :style="{ 'background-image': `url(${blok.images[0].filename})` }"></div>
         <swiper v-else
             class="w-100 my-swiper"
             :modules="modules"
@@ -16,7 +16,7 @@
             @slideChange="onSlideChange"
             >
             <swiper-slide v-for="(image, index) in blok.images" :key="index">
-                <div class="image-center-cropped" :style="{ 'background-image': `url(${image.filename})` }"></div>
+                <div class="image-center-cropped hero-image" :style="{ 'background-image': `url(${image.filename})` }"></div>
             </swiper-slide>
         </swiper>
         <div v-if="blok.images.length>1" class="swiper-button-next"></div>
@@ -52,22 +52,18 @@ export default {
 </script>
 
 <style lang="scss">
-    .image-center-cropped {
-        position: absolute;
+    .hero-image {
         width: 100%;
+        height: 100%;
         left: 0;
-        bottom: 0;
-        height: inherit;
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        overflow: hidden;
-    }
+        top: 0;
 
-    /* Set the image to fill its parent and make transparent */
-    .image-center-cropped img {
-        min-height: 100%;
-        min-width: 100%;
+        @media only screen and (max-width: $phone-max) {
+            min-width: 100%;
+            width: unset;
+            height: 100vh;
+        }
+
     }
 
     .my-swiper {

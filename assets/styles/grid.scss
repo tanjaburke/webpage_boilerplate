@@ -21,3 +21,11 @@
 .inner-full {
   padding: $pad-inner;
 }
+
+.inner-top-down {
+  padding: $pad-inner 0;
+}
+
+.inner-down {
+  padding-bottom: $pad-inner;
+}

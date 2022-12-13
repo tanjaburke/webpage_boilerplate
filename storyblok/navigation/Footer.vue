@@ -1,6 +1,6 @@
 <template>
-    <article class="footer inner-full flex-column">
-        <BlokTitle v-if="footerTitle" :blok="footerTitle[0]"/>
+    <article v-if="footerMenu.length > 0" class="footer inner-full flex-column">
+        <!-- <BlokTitle v-if="footerTitle" :blok="footerTitle[0]"/>
         <div class="flex">
             <div v-for="column in footerColumn" :key="column._uid">
                 <ul>
@@ -14,7 +14,7 @@
                     </template>
                 </ul>
             </div>
-        </div>
+        </div> -->
         <!-- <NuxtLink v-if="headerLogo" to="/">
             <img :src="headerLogo.filename" alt="" width="30" height="30">
         </NuxtLink> -->
@@ -29,9 +29,13 @@ const { data } = await storyblokApi.get('cdn/stories/config', {
   version: 'draft',
   resolve_links: 'url',
 })
- 
+
+console.log(toRaw(data));
+
 const footerMenu = ref(null)
 footerMenu.value = data.story.content.footer
+
+console.log("FOOOTER", toRaw(data));
 
 const footerColumn = ref([])
 footerColumn.value = data.story.content.footer.filter((x)=> x.component === "footerColumn");

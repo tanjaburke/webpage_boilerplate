@@ -1,9 +1,11 @@
 <template>
-  <template v-for="blok in blok.body" :key="blok._uid" :style="{backgroundColor: '#'+blok.backgroundColor}">
-   <StoryblokComponent
-      :blok="blok"
-    />
-  </template>
+ <div :class="['inner', blok.backgroundColor]" :style="{'background-color': blok.backgroundColor}">
+    <template v-for="blok in blok.body" :key="blok._uid">
+        <StoryblokComponent
+          :blok="blok"
+        />
+    </template>
+  </div>
 </template>
 
 <script lang="ts">
@@ -15,7 +17,7 @@ export default {
         }
     },
     mounted(){
-       console.log("tjos is where it a");
+       console.log("On PAGE", toRaw(this.blok));
     }
 }
 </script>

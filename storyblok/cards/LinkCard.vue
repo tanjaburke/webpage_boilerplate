@@ -1,27 +1,26 @@
 <template>
-    <article :class="['card', bgColor]">
-        <template v-if="blok.image.filename">
-            <div  :style="{ 'background-image': 'url(' + blok.image.filename + ')', 'height': height ? height : '80px',  'width': width ? width: '80px', }" class="image"/>
-            <div class="card-text flex-col js-space" :style="{'width': parent === 'list' ? `calc(95% - ${width})` : '100%'}" >
-                <DateString v-if="blok.date" :date="blok.date" class="thin-date"></DateString>
-                <div>
-                    <BlokTitle v-if="blok.title" :blok="blok" :class="[headerType, textColor]"/>
-                    <Description v-if="blok.description" :blok="blok" :class="[textColor, lineClamp]"/>
-                </div>
-            </div>
-        </template>
-        <template v-else>
-             <div class="card-text flex-col js-space w-100" >
+    <LinkWrapper :link="blok.link" :classes="['card', bgColor]">
+    <!-- <a :class="`card ${bgColor}`" v-if="blok.link.linktype === 'url'"  :href="blok.link.url.includes('https') ? blok.link.url : `https://${blok.link.url}`"> -->
+        <div v-if="blok.image" :style="{ 'background-image': 'url(' + blok.image.filename + ')', 'height': height ? height : '80px',  'width': width ? width: '80px', }" class="image"/>
+        <div class="card-text flex-col js-space" :style="{'width': parent === 'list' ? `calc(95% - ${width})` : '100%'}" >
             <DateString v-if="blok.date" :date="blok.date" class="thin-date"></DateString>
             <div>
                 <BlokTitle v-if="blok.title" :blok="blok" :class="[headerType, textColor]"/>
                 <Description v-if="blok.description" :blok="blok" :class="[textColor, lineClamp]"/>
             </div>
         </div>
-        </template>
-
-    </article>    
-   
+    <!-- </a> -->
+    </LinkWrapper>    
+    <!-- <a :class="`card ${bgColor}`" v-else :href="blok.link.url">
+        <div v-if="blok.image" :style="{ 'background-image': 'url(' + blok.image.filename + ')', 'height': height ? height : '80px',  'width': width ? width : '80px', }" class="image"/>
+        <div class="card-text flex-col js-space" :style="{'width': parent === 'list' ? `calc(95% - ${width})` : '100%'}" >
+            <DateString v-if="blok.date" :date="blok.date" class="thin-date"></DateString>
+            <div>
+                <BlokTitle v-if="blok.title" :blok="blok" :class="[headerType, textColor]"/>
+                <Description v-if="blok.description" :blok="blok" :class="[textColor, lineClamp]"/>
+            </div>
+        </div>
+    </a> -->
 </template>
 
 <script lang="ts">
@@ -63,10 +62,6 @@ export default {
             lineClamp: {
                 type: String,
                 required: false
-            },
-            index: {
-                type: Number,
-                required: false
             }
         }
     };
@@ -90,16 +85,14 @@ export default {
 
     .card {
         display: flex;
-        width: 80%;
-        min-width: 400px;
+        width: 100%;
         max-width: 900px;
-        // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-        // padding: $box-padding;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        padding: $box-padding;
         border-radius: 5px;
-        margin-bottom: $blok-padding;
 
         &:first-child {
-            margin-top: $small-margin;
+            margin: $small-margin;
         }
 
         .image {

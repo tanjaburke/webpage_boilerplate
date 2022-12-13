@@ -1,5 +1,5 @@
 <template>
-    <article class="hero-wrapper inner">
+    <article class="hero-wrapper">
         <template  v-for="blok in blok.content" :key="blok._uid" >
             <component v-if="blok" :is="blok.component" :blok="blok"/>
         </template>
@@ -19,16 +19,19 @@ export default {
 
 <style lang="scss">
 .hero-wrapper {
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-content: center;
-    height: 500px;
-    padding: $pad-inner;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    // padding: $pad-inner;
 
     @media only screen and (max-width: $phone-max) {
-        height: 300px;
+        height: calc(100vh - 80px);;
         padding: $pad-inner-mobile;
     }
 

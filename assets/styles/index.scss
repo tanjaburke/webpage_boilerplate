@@ -2,17 +2,18 @@
 @import "variables";
 @import "grid";
 @import "utils";
-@import "image";
 @import "flex";
 @import "button";
 @import "articles";
 @import "fonts";
 @import "colors";
 @import "typography";
+@import "images";
 
 body {
   color: #333;
   margin: 0;
+  background-color: white;
 }
 
 *,

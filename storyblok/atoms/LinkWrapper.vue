@@ -1,7 +1,7 @@
 <template>
-    <nuxt-link v-if="link.linktype === 'story'" :to="link.cached_url" :class="classes">
+    <a v-if="link.linktype === 'story'" :href="link.cached_url" :class="classes">
         <slot></slot>
-    </nuxt-link>
+    </a>
     <a v-if="link.linktype === 'url'"  :href="link.url.includes('https') ? link.url : `https://${link.url}`" :class="classes">
         <slot></slot>
     </a>

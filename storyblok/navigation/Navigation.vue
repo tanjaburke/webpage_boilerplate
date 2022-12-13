@@ -1,11 +1,11 @@
 <template>
-    <div class="navigation w-100 flex js-e al-c" >
+    <div class="navigation flex js-e al-c">
         <ul class="w-100 flex js-e al-c">
             <template v-for="item in blok" :key="item._uid">
-                <NuxtLink class="m-xs text-none" v-if="item.link.linktype === 'story'"
-                    :to="`/${item.link.cached_url}`">{{ item.title }}
-                </NuxtLink>
-                <a v-else :href="item.link.cached_url.includes('https') ? item.link.cached_url : `https://${item.link.cached_url}`" target="_blank">{{ item.title }}</a>
+                <a class="m-xs text-none" v-if="item.link.linktype === 'story'"
+                    :href="`/${item.link.cached_url}`"><p class="mix-blend">{{ item.title }}</p>
+                </a>
+                <a v-else class="m-xs text-none" :href="item.link.cached_url.includes('https') ? item.link.cached_url : `https://${item.link.cached_url}`" target="_blank">{{ item.title }}</a>
             </template>
         </ul>
     </div>
@@ -20,11 +20,13 @@ const props = defineProps(['blok'])
     .navigation {
         z-index: 10;
         height: 50px;
+        background-color: inherit;
 
         a {
             font-size: $header-font-size;
             font-weight: $header-font-weight;
-            color: $color-black !important;
+            color: white !important;
+            mix-blend-mode: exclusion;
         }
     }
 
@@ -36,5 +38,10 @@ const props = defineProps(['blok'])
        & img {
             height: 30px;
         }
+    }
+
+    .mix-blend {
+        color: white;
+        mix-blend-mode: exclusion;
     }
 </style>

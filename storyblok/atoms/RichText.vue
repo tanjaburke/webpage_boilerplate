@@ -1,5 +1,7 @@
 <template>
-    <RichTextRenderer :document="blok.text" :class="{}"></RichTextRenderer>
+    <section class="inner-down">
+        <RichTextRenderer :document="blok.text"></RichTextRenderer>
+    </section>
 </template>
 
 <script lang="ts">
