@@ -7,8 +7,8 @@
   .divider {
         width: 100%;
         max-width: 1400px;
-        height: 2px;
-        background: #fff;
+        height: 3.5px;
+        background: #202020;
         position: absolute;
     }
   
@@ -20,7 +20,7 @@
         width: 80%;
         max-width: 1450px;
         height: 100%;
-        background: black;
+        background: white;
         animation: animate 0.9s  ease-in;
     }
 

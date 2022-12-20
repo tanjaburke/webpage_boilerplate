@@ -1,7 +1,7 @@
 <template>
      <transition appear name="my-slide">
         <section class="menu-modal" >
-            <button @click="closeMenu" class="menu-close">X</button>
+            <button @click="closeMenu" class="menu-close"><img src="../../assets/icons/close.png" alt=""></button>
             <ul>
                 <template v-for="item in blok" :key="item._uid">
                     <a class="m-xs text-none" v-if="item.link.linktype === 'story'"
@@ -21,10 +21,6 @@ const emit = defineEmits(['closeMenu'])
 function closeMenu() {
     emit('closeMenu')
 }
-
-onMounted(() => {
-   console.log("I am here");
-})
 </script>
 
 
@@ -45,6 +41,18 @@ onMounted(() => {
         position: absolute;
         top: 30px;
         right: 30px;
+        background-color: unset;
+        border: none;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    a, p {
+        color: $color-black;
+        font-weight: bold;
     }
 }
 

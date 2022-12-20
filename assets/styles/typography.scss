@@ -20,7 +20,7 @@ h4 {
 .medium-header,
 .small-header {
   font-family: $base-font-family;
-  color: $color-black;
+  color: white;
   margin: 0;
 }
 
@@ -37,7 +37,7 @@ h4 {
 .page-header {
   font-size: clamp(60px, 35px + 5vw, 150px);
   line-height: clamp(66px, 45px + 5vw, 150px);
-  margin: 50px 0 50px -5px;
+  margin: 200px 0 50px -5px;
 }
 
 .large-header {
