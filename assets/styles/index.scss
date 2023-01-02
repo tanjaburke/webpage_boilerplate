@@ -21,3 +21,7 @@ body {
 *::after {
   box-sizing: border-box;
 }
+
+#__nuxt {
+  min-height: 100vh;
+}

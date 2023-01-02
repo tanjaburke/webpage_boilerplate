@@ -1,6 +1,6 @@
 <template>
     <article class="header inner sticky-top" :style="{'background-color': setBackgroundColor}">
-        <a v-if="headerLogo.filename" to="/">
+        <a v-if="headerLogo && headerLogo.filename" to="/">
             <img :src="headerLogo.filename" alt="" width="30" height="30">
         </a>
         <div class="flex-col">
@@ -21,23 +21,16 @@ import Navigation from './Navigation.vue';
 import ModalFull from './../buildingBlocks/ModalFull.vue';
 
 import { useWindowWidth } from '../../composables/windowWidth';
+import { useGlobalVariables } from '../../composables/globalVariables'
 
-const { mobile} = useWindowWidth();
+const { headerMenu,
+        headerLogo,
+        headerTitle,
+        connect } = await useGlobalVariables();
+const { mobile } = useWindowWidth();
 const menuIsOpen =ref(false)
 const route = useRoute()
 const setBackgroundColor = route.params.slug && route.params.slug !== "home" ? '#202020' : {};
-const storyblokApi = useStoryblokApi()
-const { data } = await storyblokApi.get('cdn/stories/config', {
-  version: 'draft',
-  resolve_links: 'url',
-})
- 
-const headerMenu = ref(null)
-const headerLogo = ref(null)
-const headerTitle = ref(null)
-headerMenu.value = data.story.content.navigation
-headerLogo.value = data.story.content.headerLogo
-headerTitle.value = data.story.content.headerTitle
 
 function openMenu(){
     menuIsOpen.value = true;
@@ -47,9 +40,6 @@ function closeMenu(){
     menuIsOpen.value = false
 }
 
-// console.log("Mobile",mobile.value);
-// console.log(toRaw(data));
-// console.log(toRaw(route.params));
 </script>
 
 <style lang="scss" scoped>

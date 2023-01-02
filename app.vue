@@ -1,5 +1,6 @@
 <template>
   <NuxtLayout>
+    <Contact/>
     <Header/>
     <NuxtPage/>
     <Footer/>
