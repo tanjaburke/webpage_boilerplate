@@ -5,8 +5,6 @@
             <template v-for="item in blok.content" :key="item._uid">
                 <a :href="item.link.url" target="_blank" ><img :src="item.icon.filename" :alt="item.icon.slt"></a>
             </template>
-
-
     </article>
 </template>
 
@@ -15,13 +13,6 @@
 import { useWindowWidth } from '../../composables/windowWidth';
 const props = defineProps(['blok'])
 const { mobile} = useWindowWidth();
-
-
-
-onMounted(() => {
-    console.log("YO");
-console.log(toRaw(props.blok));
-}) 
 </script>
 
 <style lang="scss" scoped>
