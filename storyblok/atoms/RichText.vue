@@ -1,5 +1,5 @@
 <template>
-    <section class="inner-down">
+    <section class="inner-down col-white">
         <RichTextRenderer :document="blok.text"></RichTextRenderer>
     </section>
 </template>
