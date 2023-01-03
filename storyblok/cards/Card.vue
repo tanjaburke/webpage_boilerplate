@@ -73,9 +73,9 @@ export default {
 </script>
 
 <style lang="scss">
-.card:hover {
-        background-color: #e9e9e9
-}
+// .card:hover {
+//         background-color: #e9e9e9
+// }
 
 .card {
     .thin-date {
