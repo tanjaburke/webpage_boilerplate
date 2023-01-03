@@ -1,5 +1,5 @@
 <template>
-    <section class="inner-down col-white">
+    <section class="rich-text inner-down col-white">
         <RichTextRenderer :document="blok.text"></RichTextRenderer>
     </section>
 </template>
@@ -18,4 +18,12 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+    .rich-text {
+        a {
+            color: white;
+        }
+    }
+</style>
 
