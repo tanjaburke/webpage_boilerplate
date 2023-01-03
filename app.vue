@@ -1,8 +1,8 @@
 <template>
   <NuxtLayout>
-    <Contact/>
     <Header/>
     <NuxtPage/>
+    <Contact/>
     <Footer/>
   </NuxtLayout>
 </template>
