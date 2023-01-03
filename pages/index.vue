@@ -7,10 +7,10 @@ export default {
     data() {
         return {
             story: {},
-            selected: Object,
-            articles: Object,
-            tags: [],
-            selectedId: '',
+            // selected: Object,
+            // articles: Object,
+            // tags: [],
+            // selectedId: '',
         }
     },
     mounted() {
