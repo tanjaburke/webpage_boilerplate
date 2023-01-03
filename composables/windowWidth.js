@@ -1,16 +1,10 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 export function useWindowWidth() {
-    const mobile = ref(false);
-    // const windowWidth = process.client ? ref(window.innerWidth) : ref(0)
+    const mobile = ref(process.client && window.innerWidth < 450 ? true : false);
+
 
     onMounted(() => {
-        console.log("1");
-        
-        // mobile.value = windowWidth && windowWidth.value > 450 ? false : true
-       
-       console.log("2");
-       
         window.addEventListener('resize', () => {
             updateMobile();
           });
@@ -21,6 +15,6 @@ export function useWindowWidth() {
     }
 
     return {
-        mobile,
+        mobile
     }
 }

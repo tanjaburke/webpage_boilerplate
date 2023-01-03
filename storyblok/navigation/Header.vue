@@ -3,11 +3,11 @@
         <a v-if="headerLogo && headerLogo.filename" to="/">
             <img :src="headerLogo.filename" alt="" width="30" height="30">
         </a>
-        <div class="flex-col">
+        <div class="header-logo flex-col">
             <a v-if="headerTitle" href="/">
                 <p class="small-header header-title">{{ headerTitle }}</p>
             </a>
-            <p class="header-title">Filosof, højskolelærer og skribent</p>
+            <p class="header-subtitle">Filosof, højskolelærer og skribent</p>
         </div>
         <Navigation v-if="headerMenu && !mobile" :blok="headerMenu"/>
         <button class="hamburger-menu" v-if="headerMenu && mobile" @click="openMenu"><img src="../../assets/icons/hamburger-menu.png" alt=""></button>
@@ -27,7 +27,7 @@ const { headerMenu,
         headerLogo,
         headerTitle,
         connect } = await useGlobalVariables();
-const { mobile } = useWindowWidth();
+const { mobile, width } = useWindowWidth();
 const menuIsOpen =ref(false)
 const route = useRoute()
 const setBackgroundColor = route.params.slug && route.params.slug !== "home" ? '#202020' : {};
@@ -51,11 +51,20 @@ function closeMenu(){
     z-index: 100;
 }
 
-.header-title {
+.header-logo {
+    height: 50px;
+}
+
+.header-title,
+.header-subtitle {
     color: white;
     mix-blend-mode: exclusion;
     position: relative;
     z-index: 100;
+}
+
+.header-title {
+    margin-top: $tiny-margin;
 }
 
 .hamburger-menu {
