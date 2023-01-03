@@ -9,6 +9,11 @@
             </a>
             <p class="header-subtitle">Filosof, højskolelærer og skribent</p>
         </div>
+        <p class="col-white">
+                    {{mobile}}
+        {{width}}
+        </p>
+
         <Navigation v-if="headerMenu && !mobile" :blok="headerMenu"/>
         <button class="hamburger-menu" v-if="headerMenu && mobile" @click="openMenu"><img src="../../assets/icons/hamburger-menu.png" alt=""></button>
         <ModalFull v-if="menuIsOpen" :blok="headerMenu" @closeMenu="closeMenu"/>
@@ -27,7 +32,7 @@ const { headerMenu,
         headerLogo,
         headerTitle,
         connect } = await useGlobalVariables();
-const { mobile } = useWindowWidth();
+const { mobile, width } = useWindowWidth();
 const menuIsOpen =ref(false)
 const route = useRoute()
 const setBackgroundColor = route.params.slug && route.params.slug !== "home" ? '#202020' : {};
