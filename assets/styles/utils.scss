@@ -46,6 +46,7 @@
 }
 
 .sticky-bottom {
-  top: 95vh;
-  position: sticky;
+  display: block;
+  position: fixed;
+  bottom: 5%;
 }

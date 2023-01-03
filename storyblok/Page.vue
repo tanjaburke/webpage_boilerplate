@@ -1,7 +1,6 @@
 <template>
  <div :class="['inner', blok.backgroundColor]" :style="{'background-color': blok.backgroundColor}">
     <template v-for="blok in blok.body" :key="blok._uid">
-        <!-- <div v-if="blok.animation">YO</div> -->
         <StoryblokComponent
           :blok="blok"
         />
