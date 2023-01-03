@@ -9,11 +9,6 @@
             </a>
             <p class="header-subtitle">Filosof, højskolelærer og skribent</p>
         </div>
-        <p class="col-white">
-                    {{mobile}}
-        {{width}}
-        </p>
-
         <Navigation v-if="headerMenu && !mobile" :blok="headerMenu"/>
         <button class="hamburger-menu" v-if="headerMenu && mobile" @click="openMenu"><img src="../../assets/icons/hamburger-menu.png" alt=""></button>
         <ModalFull v-if="menuIsOpen" :blok="headerMenu" @closeMenu="closeMenu"/>
