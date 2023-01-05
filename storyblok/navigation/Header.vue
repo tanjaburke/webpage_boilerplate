@@ -9,7 +9,7 @@
             </a>
             <p class="header-subtitle">Filosof, højskolelærer og skribent</p>
         </div>
-        <Navigation v-if="headerMenu && !mobile" :blok="headerMenu"/>
+        <Navigation v-if="headerMenu && ready && !mobile" :blok="headerMenu"/>
         <button class="hamburger-menu" v-if="headerMenu && mobile" @click="openMenu"><img src="../../assets/icons/hamburger-menu.png" alt=""></button>
         <ModalFull v-if="menuIsOpen" :blok="headerMenu" @closeMenu="closeMenu"/>
     </article>
@@ -25,9 +25,8 @@ import { useGlobalVariables } from '../../composables/globalVariables'
 
 const { headerMenu,
         headerLogo,
-        headerTitle,
-        connect } = await useGlobalVariables();
-const { mobile, width } = useWindowWidth();
+        headerTitle } = await useGlobalVariables();
+const { mobile, ready } = useWindowWidth();
 const menuIsOpen =ref(false)
 const route = useRoute()
 const setBackgroundColor = route.params.slug && route.params.slug !== "home" ? '#202020' : {};
