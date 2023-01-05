@@ -1,5 +1,5 @@
 <template>
- <div :class="['inner', blok.backgroundColor]" :style="{'background-color': blok.backgroundColor}">
+ <div :class="`inner ${blok.backgroundColor ? blok.backgroundColor: ''} ${slug ==='/' || slug === undefined ? '' : margin-bottom}`" :style="{'background-color': blok.backgroundColor}">
     <template v-for="blok in blok.body" :key="blok._uid">
         <StoryblokComponent
           :blok="blok"
@@ -8,16 +8,14 @@
   </div>
 </template>
 
-  <script>
-export default {
-    props: {
-        blok: {
-            type: Object,
-            required: true
-        }
-    },
-    mounted(){
-       console.log("On PAGE", toRaw(this.blok));
-    }
-}
+<script setup>
+  const props = defineProps(['blok'])
+  const route = useRoute()
+  const slug = route.params.slug
 </script>
+
+<style lang="scss" scoped>
+  .margin-bottom {
+    margin-bottom: 150px;
+  }
+</style>
