@@ -1,6 +1,6 @@
 <template>
     <teleport to="body">
-        <article v-if="contact" class="contact inner sticky-bottom flex js-c al-c">
+        <article v-if="contact" :class="`contact inner sticky-bottom ${slug ==='/' || slug === undefined ? 'flex al-c js-e' : 'flex-col al-e js-c'}`">
                 <a v-if="contact.phone" :href="'tel:+45'+contact.phone"><img src="../../assets/icons/phone-icon.png" alt="phone_number" :title="'call'+contact.phone"></a>
                 <a v-if="contact.email" :href="'mailto:'+contact.email"><img class="email" src="../../assets/icons/email-icon.png" alt="email" title="send email"></a>
                 <template v-for="item in contact.content" :key="item._uid">
@@ -13,21 +13,16 @@
 
 <script setup>
 import { useGlobalVariables } from '../../composables/globalVariables';
-
+const route = useRoute()
+const slug = route.params.slug
 const { headerMenu,
         headerLogo,
         headerTitle,
         contact } = await useGlobalVariables();
-console.log(toRaw(contact));
-console.log(toRaw(contact.value));
-console.log(contact);
 </script>
 
 <style lang="scss" scoped>
 .contact {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
     z-index: 1000;
     height: 20px;
 
