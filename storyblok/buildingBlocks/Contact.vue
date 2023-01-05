@@ -1,6 +1,6 @@
 <template>
     <teleport to="body">
-        <article v-if="contact" :class="`contact inner sticky-bottom ${slug ==='/' || slug === undefined ? 'flex al-c js-e' : 'flex-col al-e js-c'}`">
+        <article v-if="contact" :class="`contact sticky-bottom ${slug ==='/' || slug === undefined ? 'flex al-c inner js-e' : 'flex-col w-100 bg-black al-e js-c'}`">
                 <a v-if="contact.phone" :href="'tel:+45'+contact.phone"><img src="../../assets/icons/phone-icon.png" alt="phone_number" :title="'call'+contact.phone"></a>
                 <a v-if="contact.email" :href="'mailto:'+contact.email"><img class="email" src="../../assets/icons/email-icon.png" alt="email" title="send email"></a>
                 <template v-for="item in contact.content" :key="item._uid">
