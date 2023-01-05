@@ -1,7 +1,7 @@
 <template>
-    <article class="hero-wrapper">
+    <article :class="`hero-wrapper ${blok.type ? blok.type : 'hero-full' }`">
         <template  v-for="blok in blok.content" :key="blok._uid" >
-            <component v-if="blok" :is="blok.component" :blok="blok"/>
+            <component v-if="blok" :is="blok.component" :blok="blok" class="hero-item"/>
         </template>
     </article>
 </template>
@@ -13,21 +13,30 @@ export default {
             type: Object,
             required: true
         }
+    },
+    mounted(){
+        console.log(toRaw(this.blok));
     }
 }
 </script>
 
 <style lang="scss">
+.hero-full {
+    height: 100vh;
+}
+
+.hero-80 {
+    height: 80vh;
+}
+
 .hero-wrapper {
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-content: center;
-    height: 100vh;
     width: 100vw;
-    top: 0;
-    left: 0;
+    margin-left: - $pad-inner;
     // padding: $pad-inner;
 
     @media only screen and (max-width: $phone-max) {
@@ -39,15 +48,36 @@ export default {
     .description, 
     .button {
         z-index: 10;
+        padding: 0 $pad-inner;
+        width: 80%;
+
+        @media only screen and (max-width: $phone-max) {
+            padding: 0 $pad-inner-mobile;
+            width: 100%
+        }
     }
+
+    .title {
+        margin: 0;
+    }
+
 
     .description,
     .button {
-        font-size: clamp(16px, 11px + 0.9vw, 18px);
-        line-height: clamp(21px, 11px + 0.9vw, 24px);
+        font-size: clamp(16px, 11px + 0.9vw, 21px);
+        line-height: clamp(25px, 11px + 0.9vw, 30px);
     }
 
 }
+
+.hero-item:last-child {
+    margin-bottom: $blok-margin;
+
+        @media only screen and (max-width: $phone-max) {
+              margin-bottom: 25px;
+        }
+}
+
 
    
 

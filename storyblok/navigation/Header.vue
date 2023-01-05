@@ -1,5 +1,5 @@
 <template>
-    <article class="header inner sticky-top" :style="{'background-color': setBackgroundColor}">
+    <article class="header inner" :style="{'background-color': setBackgroundColor}">
         <a v-if="headerLogo && headerLogo.filename" to="/">
             <img :src="headerLogo.filename" alt="" width="30" height="30">
         </a>
@@ -29,7 +29,7 @@ const { headerMenu,
 const { mobile, ready } = useWindowWidth();
 const menuIsOpen =ref(false)
 const route = useRoute()
-const setBackgroundColor = route.params.slug && route.params.slug !== "home" ? '#202020' : {};
+// const setBackgroundColor = route.params.slug && route.params.slug !== "home" ? '#202020' : {};
 
 function openMenu(){
     menuIsOpen.value = true;
@@ -43,6 +43,8 @@ function closeMenu(){
 
 <style lang="scss" scoped>
 .header {
+    position: absolute;
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
