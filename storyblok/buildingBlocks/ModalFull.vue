@@ -3,6 +3,7 @@
         <section class="menu-modal" >
             <button @click="closeMenu" class="menu-close"><img src="../../assets/icons/close.png" alt=""></button>
             <ul>
+                    <a class="m-xs text-none" href="/"><p class="mix-blend">Hjem</p></a>
                 <template v-for="item in blok" :key="item._uid">
                     <a class="m-xs text-none" v-if="item.link.linktype === 'story'"
                         :href="`/${item.link.cached_url}`"><p class="mix-blend">{{ item.title }}</p>
@@ -34,8 +35,12 @@ function closeMenu() {
     background-color: white;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     z-index: 1000;
+
+    ul {
+        margin-left: 15px;
+    }
 
     .menu-close {
         position: absolute;
