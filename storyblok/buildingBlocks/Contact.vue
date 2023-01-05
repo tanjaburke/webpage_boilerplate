@@ -42,7 +42,7 @@ const { headerMenu,
 }
 
 .contact {
-    z-index: 1000;
+    z-index: 10;
     height: 20px;
 
 
