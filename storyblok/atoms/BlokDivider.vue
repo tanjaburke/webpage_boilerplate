@@ -5,7 +5,7 @@
 
 <style lang="scss" scoped>
   .divider {
-        width: 100%;
+        width: 90%;
         max-width: 1400px;
         height: 3.5px;
         background: #202020;

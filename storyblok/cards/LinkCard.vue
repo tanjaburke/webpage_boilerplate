@@ -68,9 +68,9 @@ export default {
 </script>
 
 <style lang="scss">
-// .card:hover {
-//         background-color: #e9e9e9
-// }
+.card:hover {
+        background-color: #e9e9e9
+}
 
 .card {
     .thin-date {
@@ -107,12 +107,11 @@ export default {
              }
         }
 
-        .card-text {
-            @media only screen and (max-width: $phone-max) {
-                width: calc(100% - 80px) !important;
-            }
-        }
-
+        // .card-text {
+        //     @media only screen and (max-width: $phone-max) {
+        //         width: calc(100% - 80px) !important;
+        //     }
+        // }
 
     }
 }
@@ -140,8 +139,6 @@ export default {
         .card-text {
             width: 100%; 
         }
-
-
 
     }
 }

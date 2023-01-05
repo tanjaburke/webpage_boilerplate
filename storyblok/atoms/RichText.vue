@@ -19,3 +19,14 @@ export default {
 }
 </script>
 
+<style lang="scss">
+    .rich-text {
+        a {
+            color: white;
+        }
+
+        @media only screen and (max-width: $phone-max) {
+            width: 95%;
+        }
+    }
+</style>

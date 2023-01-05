@@ -90,8 +90,8 @@ export default {
 
     .card {
         display: flex;
-        width: 80%;
-        min-width: 400px;
+        width: 95%;
+        // min-width: 400px;
         max-width: 900px;
         // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         // padding: $box-padding;
@@ -114,12 +114,11 @@ export default {
              }
         }
 
-        .card-text {
-            @media only screen and (max-width: $phone-max) {
-                width: calc(100% - 80px) !important;
-            }
-        }
-
+        // .card-text {
+        //     @media only screen and (max-width: $phone-max) {
+        //         width: calc(100% - 80px) !important;
+        //     }
+        // }
 
     }
 }
