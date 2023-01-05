@@ -7,7 +7,7 @@
             :space-between="50"
             :navigation="{nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev'}"
             :autoplay='{
-            "delay": 350000,
+            "delay": 5000,
             "disableOnInteraction": false
             }'
             parallax
