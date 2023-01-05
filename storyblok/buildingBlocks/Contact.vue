@@ -1,11 +1,20 @@
 <template>
     <teleport to="body">
-        <article v-if="contact" :class="`contact sticky-bottom ${slug ==='/' || slug === undefined ? 'flex al-c inner js-e' : 'flex-col w-100 bg-black al-e js-c'}`">
+        <article v-if="contact" :class="`contact sticky-bottom flex ${slug ==='/' || slug === undefined ? 'inner al-c js-e' : 'al-c js-e w-100'}`">
+            <template v-if="slug ==='/' || slug === undefined" >
                 <a v-if="contact.phone" :href="'tel:+45'+contact.phone"><img src="../../assets/icons/phone-icon.png" alt="phone_number" :title="'call'+contact.phone"></a>
                 <a v-if="contact.email" :href="'mailto:'+contact.email"><img class="email" src="../../assets/icons/email-icon.png" alt="email" title="send email"></a>
                 <template v-for="item in contact.content" :key="item._uid">
                     <a :href="item.link.url" target="_blank" ><img :src="item.icon.filename" :alt="item.icon.slt"></a>
                 </template>
+            </template>
+            <div v-else class="contact-box bg-black flex-col w-100 al-e js-e m-bottom">
+                <a v-if="contact.phone" :href="'tel:+45'+contact.phone"><img src="../../assets/icons/phone-icon.png" alt="phone_number" :title="'call'+contact.phone"></a>
+                <a v-if="contact.email" :href="'mailto:'+contact.email"><img class="email" src="../../assets/icons/email-icon.png" alt="email" title="send email"></a>
+                <template v-for="item in contact.content" :key="item._uid">
+                    <a :href="item.link.url" target="_blank" ><img :src="item.icon.filename" :alt="item.icon.slt"></a>
+                </template>
+            </div>
         </article>
     </teleport>
 </template>
@@ -22,9 +31,15 @@ const { headerMenu,
 </script>
 
 <style lang="scss" scoped>
+.contact-box{
+    background-color: $color-background;
+    width: 30px;
+    height: fit-content;
+}
 .contact {
     z-index: 1000;
     height: 20px;
+
 
     a {
         position: relative;
@@ -35,7 +50,7 @@ const { headerMenu,
     
     img {
         position: relative;
-        height: 100%;
+        height: 20px;
     }
 
     .email {
@@ -46,4 +61,5 @@ const { headerMenu,
         margin: 5px;
     }
 }
+
 </style>
