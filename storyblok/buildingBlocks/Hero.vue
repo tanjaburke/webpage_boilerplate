@@ -1,5 +1,5 @@
 <template>
-    <article :class="`hero-wrapper ${blok.type ? blok.type : 'hero-full' }`">
+    <article :class="`hero-wrapper ${blok.type ? blok.type : 'hero-full' }`" :style="(!blok.type || blok.type === 'hero-full') ? {'height' : mobile ? windowHeight.toString() + 'px' : '100vh'} : {'height' : mobile ? (windowHeight * 0.8).toString() + 'px' : '80vh'} ">
         <template  v-for="blok in blok.content" :key="blok._uid" >
             <component v-if="blok" :is="blok.component" :blok="blok" class="hero-item"/>
         </template>
@@ -9,20 +9,22 @@
   
 <script setup>
     import { useWindowWidth } from '../../composables/windowWidth';
+    import { useWindowHeight } from '../../composables/windowHeight';
 
-    import IconWrapper from '../atoms/IconWrapper.vue'
     const props = defineProps(['blok'])
 
     const { mobile, ready } = useWindowWidth();
+    const { windowHeight, heightIsReady } = useWindowHeight();
 </script>
 
 <style lang="scss">
 .hero-full {
-    height: 100vh;
-}
-
-.hero-80 {
-    height: 80vh;
+    width: 100%;
+    
+    @media only screen and (max-width: $phone-max) {
+      min-height: -webkit-fill-available; 
+      height: unset;
+    }
 }
 
 .hero-wrapper {
@@ -37,7 +39,7 @@
     @media only screen and (max-width: $phone-max) {
         height: 100vh;;
         padding: $pad-inner-mobile;
-        margin-left: calc(0px - $pad-inner / 2);
+        margin-left: -25px
     }
 
     .title, 
