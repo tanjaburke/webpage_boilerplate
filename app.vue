@@ -2,7 +2,7 @@
   <NuxtLayout>
     <Header/>
     <NuxtPage/>
-    <Contact/>
+    <!-- <Contact/> -->
     <Footer/>
   </NuxtLayout>
 </template>

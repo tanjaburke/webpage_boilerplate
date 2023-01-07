@@ -30,12 +30,8 @@ const { data } = await storyblokApi.get('cdn/stories/config', {
   resolve_links: 'url',
 })
 
-console.log(toRaw(data));
-
 const footerMenu = ref(null)
 footerMenu.value = data.story.content.footer
-
-console.log("FOOOTER", toRaw(data));
 
 const footerColumn = ref([])
 footerColumn.value = data.story.content.footer.filter((x)=> x.component === "footerColumn");
@@ -43,8 +39,6 @@ footerColumn.value = data.story.content.footer.filter((x)=> x.component === "foo
 const footerTitle = ref(null)
 footerTitle.value = data.story.content.footer.filter((x)=> x.component === "blokTitle");
 
-// console.log("FOOTER", console.log(JSON.parse(JSON.stringify(footerColumn.value))));
-console.log(toRaw(footerMenu.value));
 
 
 </script>

@@ -53,7 +53,7 @@ export default {
                 required: false
             },
             bgColor: {
-                 ype: String,
+                 type: String,
                 required: false
             },
             textColor: {

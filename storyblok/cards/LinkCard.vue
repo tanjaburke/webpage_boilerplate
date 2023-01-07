@@ -1,6 +1,5 @@
 <template>
     <LinkWrapper :link="blok.link" :classes="['card', bgColor]">
-    <!-- <a :class="`card ${bgColor}`" v-if="blok.link.linktype === 'url'"  :href="blok.link.url.includes('https') ? blok.link.url : `https://${blok.link.url}`"> -->
         <div v-if="blok.image" :style="{ 'background-image': 'url(' + blok.image.filename + ')', 'height': height ? height : '80px',  'width': width ? width: '80px', }" class="image"/>
         <div class="card-text flex-col js-space" :style="{'width': parent === 'list' ? `calc(95% - ${width})` : '100%'}" >
             <DateString v-if="blok.date" :date="blok.date" class="thin-date"></DateString>
@@ -9,18 +8,8 @@
                 <Description v-if="blok.description" :blok="blok" :class="[textColor, lineClamp]"/>
             </div>
         </div>
-    <!-- </a> -->
     </LinkWrapper>    
-    <!-- <a :class="`card ${bgColor}`" v-else :href="blok.link.url">
-        <div v-if="blok.image" :style="{ 'background-image': 'url(' + blok.image.filename + ')', 'height': height ? height : '80px',  'width': width ? width : '80px', }" class="image"/>
-        <div class="card-text flex-col js-space" :style="{'width': parent === 'list' ? `calc(95% - ${width})` : '100%'}" >
-            <DateString v-if="blok.date" :date="blok.date" class="thin-date"></DateString>
-            <div>
-                <BlokTitle v-if="blok.title" :blok="blok" :class="[headerType, textColor]"/>
-                <Description v-if="blok.description" :blok="blok" :class="[textColor, lineClamp]"/>
-            </div>
-        </div>
-    </a> -->
+
 </template>
 
   <script>

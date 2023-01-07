@@ -6,18 +6,14 @@
     </article>
 </template>
  
-  <script>
-export default {
-    props: {
-        blok: {
-            type: Object,
-            required: true
-        }
-    },
-    mounted(){
-        console.log(toRaw(this.blok));
-    }
-}
+  
+<script setup>
+    import { useWindowWidth } from '../../composables/windowWidth';
+
+    import IconWrapper from '../atoms/IconWrapper.vue'
+    const props = defineProps(['blok'])
+
+    const { mobile, ready } = useWindowWidth();
 </script>
 
 <style lang="scss">
@@ -37,24 +33,43 @@ export default {
     align-content: center;
     width: 100vw;
     margin-left: - $pad-inner;
-    // padding: $pad-inner;
 
     @media only screen and (max-width: $phone-max) {
-        height: calc(100vh - 80px);;
+        height: 100vh;;
         padding: $pad-inner-mobile;
+        margin-left: calc(0px - $pad-inner / 2);
     }
 
     .title, 
     .description, 
     .button {
+        opacity: 0;
         z-index: 10;
         padding: 0 $pad-inner;
         width: 80%;
+        animation-name: appear;
+        animation-duration: 2s;
+        animation-timing-function: cubic-bezier(0.25, 0.74, 0.22, 0.99);
+        animation-fill-mode: forwards;
 
         @media only screen and (max-width: $phone-max) {
-            padding: 0 $pad-inner-mobile;
-            width: 100%
+            width: 100%;
+            padding: unset
         }
+    }
+
+    .icon {
+        margin: $pad-inner;
+
+        @media only screen and (max-width: $phone-max) {
+            margin: $pad-inner 0 calc($pad-inner / 2) 0;
+        }
+    }
+
+
+    .description {
+        font-weight: 500;
+        width: 60%;
     }
 
     .title {
@@ -64,7 +79,7 @@ export default {
 
     .description,
     .button {
-        font-size: clamp(16px, 11px + 0.9vw, 21px);
+        font-size: clamp(16px, 11px + 0.6vw, 20px);
         line-height: clamp(25px, 11px + 0.9vw, 30px);
     }
 

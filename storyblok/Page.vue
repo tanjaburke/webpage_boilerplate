@@ -1,5 +1,5 @@
 <template>
- <div :class="`inner ${blok.backgroundColor ? blok.backgroundColor: ''} ${slug ==='/' || slug === undefined ? '' : margin-bottom}`" :style="{'background-color': blok.backgroundColor}">
+ <div :class="`inner ${blok && blok.backgroundColor ? blok.backgroundColor: ''} ${slug ==='/' || slug === undefined ? '' : margin-bottom}`" :style="{'background-color': blok.backgroundColor}">
     <template v-for="blok in blok.body" :key="blok._uid">
         <StoryblokComponent
           :blok="blok"

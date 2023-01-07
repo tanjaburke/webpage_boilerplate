@@ -1,5 +1,5 @@
 <template>
-        <div v-if="blok.images.length===1" class="image-center-cropped hero-image" :style="{ 'background-image': `url(${blok.images[0].filename})` }"></div>
+        <div v-if="blok.images.length===1" class="image-center-cropped hero-image" :style="{ 'background-image': `url(${mobile ? blok.images[0].phoneImage.filename : blok.images[0].desktopImage.filename})` }"></div>
         <swiper v-else
             class="w-100 my-swiper"
             :modules="modules"
@@ -16,39 +16,31 @@
             @slideChange="onSlideChange"
             >
             <swiper-slide v-for="(image, index) in blok.images" :key="index">
-                <div class="image-center-cropped hero-image" :style="{ 'background-image': `url(${image.filename})` }"></div>
+                <div class="image-center-cropped hero-image" :style="{ 'background-image': `url(${mobile ? image.phoneImage.filename : image.desktopImage.filename})` }"></div>
             </swiper-slide>
         </swiper>
         <div v-if="blok.images.length>1" class="swiper-button-next"></div>
         <div v-if="blok.images.length>1" class="swiper-button-prev"></div>
 </template>
  
-  <script>
+<script setup lang="ts">
  // import Swiper core and required modules
 import { Navigation, A11y, Autoplay, EffectFade } from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/vue'
+
+//import conposables
+import { useWindowWidth } from '../../composables/windowWidth';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay'
 
-export default {
-    props: {
-        blok: {
-            type: Object,
-            required: true
-        }
-    },
-    components: {
-        Swiper,
-        SwiperSlide
-    },
-    data() {
-        return {
-            modules: [Navigation, Autoplay, A11y, EffectFade],
-        }
-    }
-}
+const props = defineProps(['blok'])
+
+const { mobile, ready } = useWindowWidth();
+    
+const modules = [Navigation, Autoplay, A11y, EffectFade]
+
 </script>
 
 <style lang="scss">
@@ -61,7 +53,6 @@ export default {
         @media only screen and (max-width: $phone-max) {
             min-width: 100%;
             width: unset;
-            height: 100vh;
         }
 
     }
