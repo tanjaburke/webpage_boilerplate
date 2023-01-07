@@ -35,6 +35,7 @@
     align-content: center;
     width: 100vw;
     margin-left: - $pad-inner;
+    overflow: hidden;
 
     @media only screen and (max-width: $phone-max) {
         height: 100vh;;
