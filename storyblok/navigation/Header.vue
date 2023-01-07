@@ -10,7 +10,7 @@
                 <p class="header-subtitle" :style="{'color': color}">Filosof, højskolelærer og skribent</p>
             </div>
             <Navigation v-if="headerMenu && ready && !mobile" :blok="headerMenu" :color="color"/>
-            <button class="hamburger-menu" v-if="headerMenu && mobile" @click="openMenu"><img src="../../assets/icons/hamburger-menu.png" alt=""></button>
+            <button class="hamburger-menu" v-if="headerMenu && mobile" @click="openMenu"><HamburgerMenu/></button>
             <ModalFull v-if="menuIsOpen" :blok="headerMenu" @closeMenu="closeMenu"/>
         </article>
 </template>
@@ -18,6 +18,7 @@
 
 <script setup>
 import Navigation from './Navigation.vue';
+import HamburgerMenu from '../../assets/icons/HamburgerMenu.vue';
 import ModalFull from './../buildingBlocks/ModalFull.vue';
 
 import { useWindowWidth } from '../../composables/windowWidth';

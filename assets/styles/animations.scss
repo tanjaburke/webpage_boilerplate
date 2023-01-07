@@ -18,7 +18,7 @@
 .animation-slide-up {
   animation-name: slide-up;
   animation-duration: 1s;
-  animation-delay: 1s;
+  animation-delay: 0.5s;
   animation-timing-function: cubic-bezier(0.25, 0.74, 0.22, 0.99);
   animation-fill-mode: forwards;
 }
@@ -46,5 +46,22 @@
   }
   100% {
     opacity: 100%;
+  }
+}
+
+.animation-appear-faded {
+  animation-name: appear-faded;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-timing-function: cubic-bezier(0.25, 0.74, 0.22, 0.99);
+  animation-fill-mode: forwards;
+}
+
+@keyframes appear-faded {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 50%;
   }
 }
