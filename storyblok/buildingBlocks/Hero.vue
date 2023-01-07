@@ -19,6 +19,13 @@
 <style lang="scss">
 .hero-full {
     height: 100vh;
+    width: 100%;
+
+    
+        @media only screen and (max-width: $phone-max) {
+      min-height: -webkit-fill-available; 
+      height: unset;
+    }
 }
 
 .hero-80 {
@@ -37,7 +44,7 @@
     @media only screen and (max-width: $phone-max) {
         height: 100vh;;
         padding: $pad-inner-mobile;
-        margin-left: calc(0px - $pad-inner / 2);
+        margin-left: -25px
     }
 
     .title, 
