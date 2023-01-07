@@ -13,14 +13,10 @@
     import { onMounted } from 'vue'
     
     const props = defineProps(['blok'])
-
-    onMounted(()=>{
-        console.log(props.blok);
-    })
 </script>
 
 <style lang="scss">
     .front{
-        z-index: 10000;
+        z-index: 10;
     }
 </style>
