@@ -69,10 +69,14 @@
     }
 
 
-    .description {
-        font-weight: 500;
-        width: 60%;
-    }
+    // .description {
+    //     font-weight: 500;
+    //     width: 60%;
+        
+    //     @media only screen and (max-width: $phone-max) {
+    //         width: 100%;
+    //         padding: unset
+    //     }
 
     .title {
         margin: 0;
