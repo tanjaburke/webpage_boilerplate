@@ -1,5 +1,10 @@
 <template>
-        <div v-if="blok.images.length===1" class="image-center-cropped hero-image" :style="{ 'background-image': `url(${mobile ? blok.images[0].phoneImage.filename : blok.images[0].desktopImage.filename})` }"></div>
+        <div v-if="blok.images.length===1" 
+            class="image-center-cropped hero-image flex al-e inner inner-down js-s" 
+            :style="{ 'background-image': `url(${mobile ? blok.images[0].phoneImage.filename : blok.images[0].desktopImage.filename})` }"
+            >
+                <p class="photographer animation-appear-faded">{{mobile ? blok.images[0].phoneImage.title : blok.images[0].desktopImage.title}}</p>
+            </div>
         <swiper v-else
             class="w-100 my-swiper"
             :modules="modules"
@@ -89,4 +94,12 @@ const modules = [Navigation, Autoplay, A11y, EffectFade]
         }
     }
 
+    .photographer {
+        font-size: 12px;
+        font-weight: 200;
+        color: white;
+        position: absolute;
+        bottom: 3%;
+        opacity: 0;
+    }
 </style>
