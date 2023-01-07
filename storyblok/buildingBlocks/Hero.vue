@@ -1,5 +1,5 @@
 <template>
-    <article v-if="ready && heightIsReady" :class="`hero-wrapper ${blok.type ? blok.type : 'hero-full' }`" :style="(!blok.type || blok.type === 'hero-full') ? {'height' : mobile ? windowHeight.toString() + 'px' : '100vh'} : {'height' : mobile ? (windowHeight * 0.8).toString() + 'px' : '80vh'} ">
+    <article :class="`hero-wrapper ${blok.type ? blok.type : 'hero-full' }`" :style="(!blok.type || blok.type === 'hero-full') ? {'height' : mobile ? windowHeight.toString() + 'px' : '100vh'} : {'height' : mobile ? (windowHeight * 0.8).toString() + 'px' : '80vh'} ">
         <template  v-for="blok in blok.content" :key="blok._uid" >
             <component v-if="blok" :is="blok.component" :blok="blok" class="hero-item"/>
         </template>
@@ -20,11 +20,8 @@
 <style lang="scss">
 .hero-full {
     width: 100%;
-    
-    @media only screen and (max-width: $phone-max) {
-      min-height: -webkit-fill-available; 
-      height: unset;
-    }
+    overflow: hidden;
+    max-height: 100vh;
 }
 
 .hero-wrapper {
