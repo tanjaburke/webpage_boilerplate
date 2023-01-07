@@ -3,7 +3,7 @@
             <a v-if="headerLogo && headerLogo.filename" to="/" :style="{'color': color}">
                 <img :src="headerLogo.filename" alt="" width="30" height="30">
             </a>
-            <div class="header-logo flex-col">
+            <div class="header-text-logo flex-col">
                 <a v-if="headerTitle" href="/" :style="{'color': color}">
                     <p class="small-header header-title" :style="{'color': color}">{{ headerTitle }}</p>
                 </a>
@@ -55,8 +55,9 @@ function closeMenu(){
 }
 
 
-.header-logo {
+.header-text-logo {
     height: 50px;
+    max-width: 70%;
 }
 
 .header-title,
