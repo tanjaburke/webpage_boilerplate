@@ -1,53 +1,98 @@
 <template>
-    <article class="hero-wrapper">
+    <article :class="`hero-wrapper ${blok.type ? blok.type : 'hero-full' }`">
         <template  v-for="blok in blok.content" :key="blok._uid" >
-            <component v-if="blok" :is="blok.component" :blok="blok"/>
+            <component v-if="blok" :is="blok.component" :blok="blok" class="hero-item"/>
         </template>
     </article>
 </template>
  
-  <script>
-export default {
-    props: {
-        blok: {
-            type: Object,
-            required: true
-        }
-    }
-}
+  
+<script setup>
+    import { useWindowWidth } from '../../composables/windowWidth';
+
+    import IconWrapper from '../atoms/IconWrapper.vue'
+    const props = defineProps(['blok'])
+
+    const { mobile, ready } = useWindowWidth();
 </script>
 
 <style lang="scss">
+.hero-full {
+    height: 100vh;
+}
+
+.hero-80 {
+    height: 80vh;
+}
+
 .hero-wrapper {
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-content: center;
-    height: 100vh;
     width: 100vw;
-    top: 0;
-    left: 0;
-    // padding: $pad-inner;
+    margin-left: - $pad-inner;
 
     @media only screen and (max-width: $phone-max) {
-        height: calc(100vh - 80px);;
+        height: 100vh;;
         padding: $pad-inner-mobile;
+        margin-left: calc(0px - $pad-inner / 2);
     }
 
     .title, 
     .description, 
     .button {
+        opacity: 0;
         z-index: 10;
+        padding: 0 $pad-inner;
+        width: 80%;
+        animation-name: appear;
+        animation-duration: 2s;
+        animation-timing-function: cubic-bezier(0.25, 0.74, 0.22, 0.99);
+        animation-fill-mode: forwards;
+
+        @media only screen and (max-width: $phone-max) {
+            width: 100%;
+            padding: unset
+        }
     }
+
+    .icon {
+        margin: $pad-inner;
+
+        @media only screen and (max-width: $phone-max) {
+            margin: $pad-inner 0 calc($pad-inner / 2) 0;
+        }
+    }
+
+
+    .description {
+        font-weight: 500;
+        width: 60%;
+    }
+
+    .title {
+        margin: 0;
+    }
+
 
     .description,
     .button {
-        font-size: clamp(16px, 11px + 0.9vw, 18px);
-        line-height: clamp(21px, 11px + 0.9vw, 24px);
+        font-size: clamp(16px, 11px + 0.6vw, 20px);
+        line-height: clamp(25px, 11px + 0.9vw, 30px);
     }
 
 }
+
+.hero-item:last-child {
+    margin-bottom: $blok-margin;
+
+        @media only screen and (max-width: $phone-max) {
+              margin-bottom: 25px;
+        }
+}
+
 
    
 

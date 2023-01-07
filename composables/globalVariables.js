@@ -14,7 +14,7 @@ export async function useGlobalVariables() {
     headerMenu.value = data.story.content.navigation
     headerLogo.value = data.story.content.headerLogo
     headerTitle.value = data.story.content.headerTitle
-    contact.value = data.story.content.contact[0]
+    contact.value = data.story.content.contact
 
 
 

@@ -52,5 +52,9 @@
 .sticky-bottom {
   display: block;
   position: fixed;
-  bottom: 5%;
+  bottom: -50%;
+
+  @media only screen and (max-width: $phone-max) {
+    bottom: -50%;
+  }
 }
