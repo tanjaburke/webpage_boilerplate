@@ -9,11 +9,13 @@
 @import "colors";
 @import "typography";
 @import "images";
+@import "animations";
 
 body {
   color: #333;
   margin: 0;
-  background-color: $color-background;
+  // #
+  // background-color: $color-background;
   width: 100vw;
   min-height: -webkit-fill-available;
 }
@@ -26,4 +28,13 @@ body {
 
 #__nuxt {
   min-height: 100vh;
+}
+
+a,
+p,
+h1,
+h2,
+h3,
+h4 {
+  word-break: break-word;
 }

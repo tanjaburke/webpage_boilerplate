@@ -1,18 +1,18 @@
 <template>
-    <article class="header inner" :style="{'background-color': setBackgroundColor}">
-        <a v-if="headerLogo && headerLogo.filename" to="/">
-            <img :src="headerLogo.filename" alt="" width="30" height="30">
-        </a>
-        <div class="header-logo flex-col">
-            <a v-if="headerTitle" href="/">
-                <p class="small-header header-title">{{ headerTitle }}</p>
+        <article class="header inner animation-slide-down" :style="{'background-color': setBackgroundColor ? setBackgroundColor : ''}">
+            <a v-if="headerLogo && headerLogo.filename" to="/" :style="{'color': color}">
+                <img :src="headerLogo.filename" alt="" width="30" height="30">
             </a>
-            <p class="header-subtitle">Filosof, højskolelærer og skribent</p>
-        </div>
-        <Navigation v-if="headerMenu && ready && !mobile" :blok="headerMenu"/>
-        <button class="hamburger-menu" v-if="headerMenu && mobile" @click="openMenu"><img src="../../assets/icons/hamburger-menu.png" alt=""></button>
-        <ModalFull v-if="menuIsOpen" :blok="headerMenu" @closeMenu="closeMenu"/>
-    </article>
+            <div class="header-logo flex-col">
+                <a v-if="headerTitle" href="/" :style="{'color': color}">
+                    <p class="small-header header-title" :style="{'color': color}">{{ headerTitle }}</p>
+                </a>
+                <p class="header-subtitle" :style="{'color': color}">Filosof, højskolelærer og skribent</p>
+            </div>
+            <Navigation v-if="headerMenu && ready && !mobile" :blok="headerMenu" :color="color"/>
+            <button class="hamburger-menu" v-if="headerMenu && mobile" @click="openMenu"><img src="../../assets/icons/hamburger-menu.png" alt=""></button>
+            <ModalFull v-if="menuIsOpen" :blok="headerMenu" @closeMenu="closeMenu"/>
+        </article>
 </template>
 
 
@@ -29,7 +29,7 @@ const { headerMenu,
 const { mobile, ready } = useWindowWidth();
 const menuIsOpen =ref(false)
 const route = useRoute()
-// const setBackgroundColor = route.params.slug && route.params.slug !== "home" ? '#202020' : {};
+const color = route.params.slug && route.params.slug === "kontakt" ? '#333' : 'white';
 
 function openMenu(){
     menuIsOpen.value = true;
@@ -44,13 +44,15 @@ function closeMenu(){
 <style lang="scss" scoped>
 .header {
     position: absolute;
-    top: 0;
+    top: -70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 70px;
     z-index: 100;
+
 }
+
 
 .header-logo {
     height: 50px;
@@ -79,4 +81,6 @@ function closeMenu(){
         widows: 100&;
     }
 }
+
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <section class="rich-text inner-down col-white">
+    <section class="rich-text inner-down">
         <RichTextRenderer :document="blok.text"></RichTextRenderer>
     </section>
 </template>
@@ -22,7 +22,9 @@ export default {
 <style lang="scss">
     .rich-text {
         a {
-            color: white;
+            color: black;
+            cursor: hand;
+            font-weight: 600;
         }
 
         @media only screen and (max-width: $phone-max) {
